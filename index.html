@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content="pandoc" />
+    <meta name="author" content="Temenos" />
+      <meta name="description" content="Jedna strona z podstawowymi informacjami o Deagonii i webową wersją podręcznika." />
+    <title>Deagonia</title>
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <div class="site-shell" id="top">
+    <header class="site-bar">
+      <a class="site-brand" href="#top">Deagonia</a>
+      <nav class="site-nav" aria-label="Mikro menu">
+        <a href="#website-home">Info</a>
+        <a href="#website-book">Podręcznik</a>
+                <button class="site-nav-toggle" type="button" data-toc-toggle aria-expanded="false" aria-controls="site-toc">
+          Spis treści
+        </button>
+      </nav>
+    </header>
+
+    <div class="site-frame">
+      <main class="site-main">
+        <article class="site-body">
+          <section id="website-index" class="level1">
+          <h1>Deagonia: Website</h1>
+          <blockquote>
+          <p>Ten indeks steruje webowym outputem Deagonii. Dodawaj tutaj tylko te pliki Markdown, które mają wejść do strony i webowej wersji podręcznika. Jeśli chcesz aktywować przycisk Discord w szablonie, dodaj w metadanych pole <code>discord_url</code>.</p>
+          </blockquote>
+          <section id="jak-używać-tego-indeksu" class="level2">
+          <h2>Jak używać tego indeksu</h2>
+          <p>Buduj tę wersję selektywnie.</p>
+          <p>Najpierw wybierz sekcje wejściowe strony, potem rozdziały podręcznika, które mają być dostępne w webie.</p>
+          </section>
+          <section id="website-home" class="level2">
+          <h2>Strona główna</h2>
+          <!--
+          Przykładowe include'y:
+          ![[rulebook/rulebook-prolog]]
+          ![[rulebook/echo/rulebook-echo-wprowadzenie]]
+          -->
+          </section>
+          <section id="website-book" class="level2">
+          <h2>Webowy podręcznik</h2>
+          <!--
+          Przykładowe include'y:
+          ![[alchemy/alchemy-quickstart]]
+          ![[rulebook/rulebook-scenariusz-startowy]]
+          -->
+          </section>
+          </section>
+        </article>
+      </main>
+
+      <aside class="site-toc" id="site-toc" data-toc-panel aria-label="Spis treści">
+        <div class="site-toc-card">
+          <p class="site-toc-kicker">Nawigacja</p>
+                    <ul>
+                    <li><a href="#website-index">Deagonia: Website</a>
+                    <ul>
+                    <li><a href="#jak-używać-tego-indeksu">Jak używać tego indeksu</a></li>
+                    <li><a href="#website-home">Strona główna</a></li>
+                    <li><a href="#website-book">Webowy podręcznik</a></li>
+                    </ul></li>
+                    </ul>
+                  </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="site.js"></script>
+</body>
+</html>
