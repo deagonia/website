@@ -1,6 +1,7 @@
 /* Default theme is intentionally dark. */
 :root {
   color-scheme: dark;
+  --main-font-size: calc(0.6rem + 0.6dvh);
 
   --font-brand: "GFS Didot", "Times New Roman", serif;
   --font-display: "Cormorant Garamond", Georgia, serif;
@@ -105,6 +106,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  font-size: var(--main-font-size);
   color: var(--color-text);
   font-family: var(--font-body);
   background: var(--color-bg-canvas);
@@ -387,7 +389,7 @@ body::before {
 .site-body p,
 .site-body li {
   max-width: 74ch;
-  font-size: 1.08rem;
+  font-size: 1em;
   color: var(--color-text-muted);
   line-height: 1.7;
 }
@@ -458,6 +460,18 @@ body::before {
   text-decoration: none;
 }
 
+.site-body a.site-cta--primary,
+.site-body a.site-cta--primary:hover,
+.site-body a.site-cta--primary:focus-visible {
+  color: var(--color-text-on-accent);
+}
+
+.site-body a.site-cta--secondary,
+.site-body a.site-cta--secondary:hover,
+.site-body a.site-cta--secondary:focus-visible {
+  color: var(--color-text-strong);
+}
+
 .site-cta-icon {
   width: 18px;
   height: 18px;
@@ -485,7 +499,7 @@ body::before {
 .site-entry-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 22px;
+  gap: 28px;
   margin-top: 0;
 }
 
@@ -493,9 +507,9 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
   min-height: 100%;
-  padding: clamp(22px, 3.4vw, 28px);
+  padding: clamp(26px, 3.8vw, 34px);
   border: 1px solid var(--color-line-strong-A20);
   border-radius: 30px;
   background: rgba(13, 18, 20, 0.78);
@@ -776,8 +790,8 @@ body::before {
 .site-shell[data-page="landing"] .site-body > section.level1:first-of-type {
   position: relative;
   z-index: 1;
-  padding-top: clamp(34px, 7vw, 68px);
-  padding-bottom: clamp(8px, 2vw, 18px);
+  padding-top: clamp(46px, 8vw, 84px);
+  padding-bottom: clamp(24px, 4vw, 44px);
   text-align: center;
 }
 
@@ -791,7 +805,7 @@ body::before {
   width: 100%;
   margin-inline: auto;
   font-family: var(--font-brand);
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.32rem;
   font-size: 5.6rem;
   line-height: 0.88;
   letter-spacing: -0.045em;
@@ -805,10 +819,10 @@ body::before {
   justify-content: center;
   max-width: 100%;
   width: fit-content;
-  margin: 0 auto 3.4rem;
+  margin: 0 auto 4rem;
   color: var(--color-text-highlight);
   font-family: var(--font-ui);
-  font-size: 0.88rem;
+  font-size: var(--main-font-size);
   font-weight: 600;
   letter-spacing: 0.08em;
   line-height: 1.1;
@@ -819,19 +833,28 @@ body::before {
 
 .site-landing-kicker span + span::before {
   content: "|";
-  margin-inline: 0.44em;
+  margin-inline: 0.8em;
   color: var(--color-text-faint);
 }
 
 .site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote,
 .site-shell[data-page="community"] .site-body > section.level1:first-of-type blockquote {
   max-width: 48ch;
-  margin-bottom: 2.9rem;
+  margin-top: 0;
+  margin-bottom: 4.8rem;
   background: transparent;
 }
 
 .site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote {
   margin-inline: auto;
+}
+
+.site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote p {
+  line-height: 1.72;
+}
+
+.site-shell[data-page="landing"] .site-body > section.level1:first-of-type > .site-entry-grid {
+  margin-top: 0;
 }
 
 .site-shell[data-page="landing"] .site-body::before {
@@ -847,6 +870,12 @@ body::before {
       rgba(13, 18, 20, 0.14) 46%,
       rgba(13, 18, 20, 0.28) 100%
     );
+}
+
+@media (min-width: 1281px) {
+  :root {
+    --main-font-size: 1.08rem;
+  }
 }
 
 .site-shell[data-page="landing"] .site-body section.level2,
@@ -1055,7 +1084,7 @@ body::before {
   }
 
   .site-entry-card {
-    padding: 22px 18px 18px;
+    padding: 24px 18px 20px;
     border-radius: 24px;
     gap: 14px;
   }
@@ -1092,13 +1121,22 @@ body::before {
   }
 
   .site-landing-kicker {
-    margin-bottom: 3rem;
-    font-size: calc(0.2rem + 1.65dvw);
+    margin-bottom: 4rem;
+    font-size: var(--main-font-size);
     letter-spacing: 0.05em;
   }
 
   .site-landing-kicker span + span::before {
-    margin-inline: 0.34em;
+    margin-inline: 0.8em;
+  }
+
+  .site-shell[data-page="landing"] .site-body > section.level1:first-of-type {
+    padding-top: 28px;
+    padding-bottom: 18px;
+  }
+
+  .site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote {
+    margin-bottom: 4rem;
   }
 
   .site-shell[data-page="landing"] .site-body > section.level1:first-of-type {
