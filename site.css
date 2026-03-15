@@ -770,7 +770,6 @@ body::before {
   text-align: center;
 }
 
-.site-shell[data-page="landing"] .site-body > section.level1:first-of-type h1,
 .site-shell[data-page="community"] .site-body > section.level1:first-of-type h1 {
   max-width: 8ch;
   font-size: clamp(3.1rem, 9vw, 6.2rem);
@@ -778,7 +777,13 @@ body::before {
 
 .site-shell[data-page="landing"] .site-body > section.level1:first-of-type h1 {
   max-width: none;
+  width: 100%;
   margin-inline: auto;
+  font-family: var(--font-brand);
+  font-size: calc(2.15rem + 4.2dvw);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  text-align: center;
 }
 
 .site-landing-kicker {
@@ -791,6 +796,7 @@ body::before {
   letter-spacing: 0.08em;
   line-height: 1.1;
   text-align: center;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
