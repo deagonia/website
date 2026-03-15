@@ -80,6 +80,22 @@ function registerDeagoniaWebsite(AlpineInstance) {
         return this.siteBasePath + String((this.config.pageMap[slug] || {}).path || "");
       },
 
+      toggleMenu() {
+        var nextState = !this.menuOpen;
+        this.menuOpen = nextState;
+        if (nextState) {
+          this.tocOpen = false;
+        }
+      },
+
+      toggleToc() {
+        var nextState = !this.tocOpen;
+        this.tocOpen = nextState;
+        if (nextState) {
+          this.menuOpen = false;
+        }
+      },
+
       fragmentHref(slug, kind) {
         return this.siteBasePath + "fragments/" + slug + "." + kind + ".html?v=" + this.config.assetVersion;
       },
