@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Webowa wersja podręcznika Deagonii z dynamicznie ładowanym spisem treści." />
   <title>Δεαγονία — Podręcznik</title>
-  <link rel="stylesheet" href="../site.css?v=0.0.49" />
+  <link rel="stylesheet" href="../site.css?v=0.0.50" />
   <script>
     window.DEAGONIA_WEBSITE_CONFIG = {
       initialPage: "handbook",
       siteTitle: "Δεαγονία",
-      assetVersion: "0.0.49",
+      assetVersion: "0.0.50",
       pageMap: {"landing":{"slug":"landing","path":"","menuMode":"pages","sections":[],"pageTitle":"Landing Deagonii","documentTitle":"Δεαγονία","description":"Krótki wstęp do Deagonii i wejście do podręcznika lub community.","showLandingArt":true,"showToc":false,"backdropImage":"cover.png"},"community":{"slug":"community","path":"community/","menuMode":"pages","sections":[],"pageTitle":"Community Deagonii","documentTitle":"Δεαγονία — Community","description":"Społeczność Deagonii i wejście na Discord projektu.","showLandingArt":false,"showToc":false,"backdropImage":"community-backdrop.png"},"handbook":{"slug":"handbook","path":"handbook/","menuMode":"toc","sections":[],"pageTitle":"Podręcznik Deagonii","documentTitle":"Δεαγονία — Podręcznik","description":"Webowa wersja podręcznika Deagonii z dynamicznie ładowanym spisem treści.","showLandingArt":false,"showToc":true,"backdropImage":""}}
     };
   </script>
-  <script defer src="../site.js?v=0.0.49"></script>
+  <script defer src="../site.js?v=0.0.50"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.8/dist/cdn.min.js?v=3.15.8"></script>
 </head>
 <body class="website-shell">
@@ -35,8 +35,8 @@
     >
       <img
         class="site-hero-backdrop-image"
-        src="../cover.png?v=0.0.49"
-        x-bind:src="activePage && activePage.backdropImage ? siteAssetHref(activePage.backdropImage) : '../cover.png?v=0.0.49'"
+        src="../cover.png?v=0.0.50"
+        x-bind:src="activePage && activePage.backdropImage ? siteAssetHref(activePage.backdropImage) : '../cover.png?v=0.0.50'"
         alt=""
         loading="eager"
         decoding="async"
@@ -140,27 +140,26 @@
   <p>Jeśli wolisz zacząć od krótkiego wejścia, wróć na <a href="../">stronę główną</a>. Jeśli chcesz śledzić rozwój projektu i wejść później w playtest, zajrzyj do <a href="../community/">Społeczności</a>.</p>
   <section id="jak-czytać-wersję-webową" class="level2">
   <h2>Jak czytać wersję webową</h2>
-  <p>Na razie to tylko sygnał tonu i kierunku. Manifest pokazuje, o czym jest Deagonia jako gra, a wprowadzenie do Echo ustawia świat i jego język.</p>
+  <p>Na razie to tylko sygnał tonu i kierunku. Manifest pokazuje, o czym jest Deagonia jako gra, a wprowadzenie do Echo ustawia świat i jego język</p>
   </section>
-  <section id="website-book" class="level2">
-  <h2>Webowy podręcznik</h2>
-  <section id="rulebook-manifest" class="level3">
-  <h3>Deagonia: Manifest</h3>
+  </section>
+  <section id="rulebook-manifest" class="level1">
+  <h1>Deagonia: Manifest</h1>
   <p>Deagonia nie pyta, kto wygra. Pyta, kto zapłaci cenę decyzji i jaki Ślad zostanie po scenie.</p>
   <p>To nie jest gra o przewadze. To jest gra o kierunku pod naciskiem.</p>
-  <section id="rdzeń" class="level4">
-  <h4>Rdzeń</h4>
+  <section id="rdzeń" class="level2">
+  <h2>Rdzeń</h2>
   <p>Silnik Alchemy nie symuluje szczęścia. Rozstrzyga, jak energia postaci przechodzi przez presję świata.</p>
   <p>Pytanie przewodnie tej gry brzmi: <strong>co próbujesz ochronić i ile to kosztuje?</strong></p>
   </section>
-  <section id="echo-i-warstwa-pierwsza" class="level4">
-  <h4>Echo i Warstwa Pierwsza</h4>
+  <section id="echo-i-warstwa-pierwsza" class="level2">
+  <h2>Echo i Warstwa Pierwsza</h2>
   <p>Echo ma logikę snu, ale nie jest chaosem bez reguł. Najpierw jest mitologiczna Grecja, potem przeciek Warstwy Pierwszej.</p>
   <p>Relikty są rzadkie i tabuiczne. Nie budują codzienności. Budują stawkę.</p>
   <p>W Deagonii działa zasada odwrócenia technologii: im coś było bardziej technologiczne w Warstwie Pierwszej, tym bardziej mityczne staje się w Echu.</p>
   </section>
-  <section id="rytm-sesji-progi-i-testy" class="level4">
-  <h4>Rytm sesji: Progi i Testy</h4>
+  <section id="rytm-sesji-progi-i-testy" class="level2">
+  <h2>Rytm sesji: Progi i Testy</h2>
   <p>Sesję lub przygodę buduje się wokół Progów. Najczęściej oznacza to od jednego do trzech Progów na sesję, a między nimi Testy i sceny czystej fikcji.</p>
   <p><strong>Test</strong> i <strong>Próg</strong> to dwa różne narzędzia. Próg nie jest trudniejszym Testem.</p>
   <ul>
@@ -168,26 +167,26 @@
   <li><strong>Próg</strong>: stawka nieodwracalna lub śmiertelna; zmienia stan świata i postaci.</li>
   </ul>
   </section>
-  <section id="postać-i-zasoby-psyche" class="level4">
-  <h4>Postać i Zasoby Psyche</h4>
+  <section id="postać-i-zasoby-psyche" class="level2">
+  <h2>Postać i Zasoby Psyche</h2>
   <p>Każdy gracz prowadzi postać, która ma własne Zasoby Psyche.</p>
   <p>W scenach płacisz żetonami Zasobów Psyche, żeby działać. W Testach i Progach zagrywasz karty zasobów, by pokrywać pola i przechodzić przez stawkę.</p>
   <p>Nie gracie o szczęście. Gracie o to, <strong>czym płacicie</strong> i <strong>co zostaje po koszcie</strong>.</p>
   </section>
-  <section id="cień-i-stawka" class="level4">
-  <h4>Cień i stawka</h4>
+  <section id="cień-i-stawka" class="level2">
+  <h2>Cień i stawka</h2>
   <p>Cień nie jest potworem do pokonania. Cień jest napięciem do rozpoznania.</p>
   <p>Cień może wejść do sceny na starcie albo ujawnić się dopiero w rozstrzygnięciu, zwłaszcza pod rosnącym Napięciem i po stronie Kompulsji.</p>
   <p>Scena wysokiej stawki staje się Progiem wtedy, gdy porażka jest nieodwracalna lub śmiertelna. O tym decyduje stawka, nie sam motyw Cienia.</p>
   <p>W praktyce sceny wysokiej stawki zwykle biegną tym torem: <strong>stawka -&gt; napięcie -&gt; decyzja -&gt; koszt -&gt; Test lub Próg -&gt; Ślad -&gt; (czasem) Integracja</strong>.</p>
   </section>
-  <section id="oś-postaci-integracjakompulsja" class="level4">
-  <h4>Oś postaci: Integracja/Kompulsja</h4>
+  <section id="oś-postaci-integracjakompulsja" class="level2">
+  <h2>Oś postaci: Integracja/Kompulsja</h2>
   <p>Każda karta Zasobu Psyche ma parę czynności Integracja/Kompulsja. To nie podział na dobro i zło, tylko dwa tryby tego samego gestu.</p>
   <p>To, która strona pary się uruchamia, wynika z przecięcia Nacisku sceny (Osobowy, Społeczny, Transcendentny) i Napięcia postaci (Ugruntowany, Drżący, Rozchwiany).</p>
   </section>
-  <section id="co-zostaje-po-rozstrzygnięciu" class="level4">
-  <h4>Co zostaje po rozstrzygnięciu</h4>
+  <section id="co-zostaje-po-rozstrzygnięciu" class="level2">
+  <h2>Co zostaje po rozstrzygnięciu</h2>
   <p>Po Progu zapisujesz Ślad: krótkie słowo, obraz albo zdanie ceny. Ślad ma pracować dalej w fikcji.</p>
   <p>Ruch Drogi zapisujesz przez SI/SK zgodnie z Alchemy: Drogi Postaci. Na stopniu Przemiany aktywuje się pakiet DAR/ZEW aktywnej strony Drogi.</p>
   <ul>
@@ -195,12 +194,12 @@
   <li>ZEW zawęża decyzje i wzmacnia przymus kierunku.</li>
   </ul>
   </section>
-  <section id="bezpieczeństwo" class="level4">
-  <h4>Bezpieczeństwo</h4>
+  <section id="bezpieczeństwo" class="level2">
+  <h2>Bezpieczeństwo</h2>
   <p>Pauza bezpieczeństwa jest twardą regułą gry, nie dodatkiem do klimatu. Jeśli ktoś mówi „pauza”, gra zatrzymuje się natychmiast. Bez negocjacji i bez presji tempa.</p>
   </section>
-  <section id="manifest-w-praktyce" class="level4">
-  <h4>Manifest w praktyce</h4>
+  <section id="manifest-w-praktyce" class="level2">
+  <h2>Manifest w praktyce</h2>
   <p>Przed każdą sceną o wysokiej stawce ustalcie:</p>
   <ol type="1">
   <li>Co dokładnie jest stawką i co stanie się przy porażce.</li>
@@ -215,11 +214,11 @@
   <!-- docelowa długość 2 strony -->
   </section>
   </section>
-  <section id="rulebook-echo-wprowadzenie" class="level3">
-  <h3>Deagonia: Echo Wprowadzenie</h3>
+  <section id="rulebook-echo-wprowadzenie" class="level1">
+  <h1>Deagonia: Echo Wprowadzenie</h1>
   <p>Echo jest warstwą świata powstałą po pęknięciu nieświadomości zbiorowej. Nie jest „alternatywną rzeczywistością”. Jest <strong>odpowiedzią psyche</strong> na świat, którego nie dało się już udźwignąć.</p>
-  <section id="forma-mitologiczna-grecja" class="level4">
-  <h4>Forma: mitologiczna Grecja</h4>
+  <section id="forma-mitologiczna-grecja" class="level2">
+  <h2>Forma: mitologiczna Grecja</h2>
   <p>Na powierzchni Echo jest światem jak z mitu:</p>
   <ul>
   <li>polis i świątynie</li>
@@ -229,8 +228,8 @@
   </ul>
   <p>To jest język, którym świat mówi sam do siebie.</p>
   </section>
-  <section id="tkanka-miast-demoagonokratia" class="level4">
-  <h4>Tkanka miast: Demoagonokratia</h4>
+  <section id="tkanka-miast-demoagonokratia" class="level2">
+  <h2>Tkanka miast: Demoagonokratia</h2>
   <p>W większości miast władza jest utkanym z agonu rytmem:</p>
   <ul>
   <li>lud wybiera swoich przedstawicieli,</li>
@@ -238,30 +237,30 @@
   </ul>
   <p>To rodzi napięcia: uczciwy agon kontra wypaczenie, pycha elit kontra gniew ludu.</p>
   </section>
-  <section id="zasada-naczelna-im-bardziej-tech-tym-bardziej-mistyczne" class="level4">
-  <h4>Zasada naczelna: im bardziej tech, tym bardziej mistyczne</h4>
+  <section id="zasada-naczelna-im-bardziej-tech-tym-bardziej-mistyczne" class="level2">
+  <h2>Zasada naczelna: im bardziej tech, tym bardziej mistyczne</h2>
   <p>Echo jest projekcją Warstwy Pierwszej. Dlatego obowiązuje prosta reguła:</p>
   <blockquote>
   <p><strong>Im coś było bardziej technologiczne w Warstwie Pierwszej, tym bardziej mistyczne jest w Echu.</strong></p>
   </blockquote>
   <p>Technologia nie znika. Ona zmienia funkcję i język. W Echu jest cudowna, tabuiczna, rytualna.</p>
-  <section id="skala-odbicia-ważne" class="level5">
-  <h5>Skala odbicia (ważne)</h5>
+  <section id="skala-odbicia-ważne" class="level3">
+  <h3>Skala odbicia (ważne)</h3>
   <p>Odbicie Warstwy Pierwszej do Echa nie musi zachowywać 1:1 skali ani proporcji. To, co było małe i techniczne, może stać się monumentalne i sakralne. To, co było wielkie, może stać się miniaturą-znakiem.</p>
   <p>Przykład:</p>
   <ul>
   <li>szafa serwerowa z Warstwy Pierwszej może w Echu istnieć jako starożytna kolumna sygnału, przeskalowana nawet x10, z pionowymi rytami światła i funkcją rytualną.</li>
   </ul>
   </section>
-  <section id="przykład-led-nici-z-rzek" class="level5">
-  <h5>Przykład: LED-nici z rzek</h5>
+  <section id="przykład-led-nici-z-rzek" class="level3">
+  <h3>Przykład: LED-nici z rzek</h3>
   <p>W Warstwie Pierwszej: zimny wskaźnik, kontrola, pomiar. W Echu: <strong>nici światła</strong> poławiane z rzek i źródeł jak złoto. Ludzie noszą je, bo świecą kolorem emocji – jakby świat miał na skórze własną aurę.</p>
   <p>Relikty są rzadkie jako technologia, ale obecne w obiegu (jak złoto: nie każdy ma, każdy zna).</p>
   <hr />
   </section>
   </section>
-  <section id="czym-jest-echo" class="level4">
-  <h4>Czym jest Echo?</h4>
+  <section id="czym-jest-echo" class="level2">
+  <h2>Czym jest Echo?</h2>
   <p><strong>Echo</strong> to główna przestrzeń gry w systemie Deagonia — świat, w którym działają Archetypy graczy, opisane jako Drogi postaci.<br />
   Nie jest to jednak sen w czystym sensie: <strong>Echo nie jest totalnie nielinearne ani abstrakcyjne.</strong><br />
   To raczej świat <strong>mityczny, symboliczny, pogłębiony</strong>, w którym wydarzenia mają zarówno fabularne, jak i psychiczne znaczenie.</p>
@@ -269,13 +268,11 @@
   <p>Echo to przestrzeń pomiędzy snem a światem.<br />
   Tak realna, jak twoja decyzja. Tak niepewna, jak twoje pragnienie.</p>
   </blockquote>
-  <section id="warstwa-pierwsza" class="level5">
-  <h5>Warstwa Pierwsza</h5>
+  <section id="warstwa-pierwsza" class="level3">
+  <h3>Warstwa Pierwsza</h3>
   <p>To przestrzeń realistyczna, codzienna lub bliska naszej rzeczywistości.<br />
   Może być dystopią, przyszłością, światem rozpadu lub po prostu tłem psychologicznym.</p>
   <p>Jeśli chcesz utrzymać spójny ton w opisach scen i mechaniki, zobacz rozdziały Echo: Demoagonokratia, Echo: Bogowie i Echo: Opis świata.</p>
-  </section>
-  </section>
   </section>
   </section>
   </section></article>
@@ -306,10 +303,31 @@
 <li><a href="#website-handbook">Podręcznik Deagonii</a>
 <ul>
 <li><a href="#jak-czytać-wersję-webową">Jak czytać wersję webową</a></li>
-<li><a href="#website-book">Webowy podręcznik</a>
+</ul></li>
+<li><a href="#rulebook-manifest">Deagonia: Manifest</a>
 <ul>
-<li><a href="#rulebook-manifest">Deagonia: Manifest</a></li>
-<li><a href="#rulebook-echo-wprowadzenie">Deagonia: Echo Wprowadzenie</a></li>
+<li><a href="#rdzeń">Rdzeń</a></li>
+<li><a href="#echo-i-warstwa-pierwsza">Echo i Warstwa Pierwsza</a></li>
+<li><a href="#rytm-sesji-progi-i-testy">Rytm sesji: Progi i Testy</a></li>
+<li><a href="#postać-i-zasoby-psyche">Postać i Zasoby Psyche</a></li>
+<li><a href="#cień-i-stawka">Cień i stawka</a></li>
+<li><a href="#oś-postaci-integracjakompulsja">Oś postaci: Integracja/Kompulsja</a></li>
+<li><a href="#co-zostaje-po-rozstrzygnięciu">Co zostaje po rozstrzygnięciu</a></li>
+<li><a href="#bezpieczeństwo">Bezpieczeństwo</a></li>
+<li><a href="#manifest-w-praktyce">Manifest w praktyce</a></li>
+</ul></li>
+<li><a href="#rulebook-echo-wprowadzenie">Deagonia: Echo Wprowadzenie</a>
+<ul>
+<li><a href="#forma-mitologiczna-grecja">Forma: mitologiczna Grecja</a></li>
+<li><a href="#tkanka-miast-demoagonokratia">Tkanka miast: Demoagonokratia</a></li>
+<li><a href="#zasada-naczelna-im-bardziej-tech-tym-bardziej-mistyczne">Zasada naczelna: im bardziej tech, tym bardziej mistyczne</a>
+<ul>
+<li><a href="#skala-odbicia-ważne">Skala odbicia (ważne)</a></li>
+<li><a href="#przykład-led-nici-z-rzek">Przykład: LED-nici z rzek</a></li>
+</ul></li>
+<li><a href="#czym-jest-echo">Czym jest Echo?</a>
+<ul>
+<li><a href="#warstwa-pierwsza">Warstwa Pierwsza</a></li>
 </ul></li>
 </ul></li>
 </ul></div>

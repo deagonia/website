@@ -363,7 +363,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
         }
 
         var self = this;
-        var tocLinks = Array.prototype.slice.call(this.$refs.toc.querySelectorAll("#TOC a[href^='#']"));
+        var tocLinks = Array.prototype.slice.call(this.$refs.toc.querySelectorAll("a[href^='#']"));
 
         tocLinks.forEach(function (link) {
           link.addEventListener("click", function () {
@@ -398,7 +398,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
         }
 
         var query = String(this.tocQuery || "").trim().toLocaleLowerCase("pl");
-        var rootList = this.$refs.toc.querySelector("#TOC > ul, ul");
+        var rootList = this.$refs.toc.querySelector("ul");
 
         if (!rootList) {
           this.tocHasNoResults = false;
@@ -437,7 +437,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
         this.tocHasNoResults = query ? !visit(rootList) : false;
 
         if (!query) {
-          Array.prototype.forEach.call(this.$refs.toc.querySelectorAll("#TOC a.is-match"), function (link) {
+          Array.prototype.forEach.call(this.$refs.toc.querySelectorAll("a.is-match"), function (link) {
             link.classList.remove("is-match");
           });
         }
