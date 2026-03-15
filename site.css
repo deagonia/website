@@ -389,7 +389,7 @@ body::before {
 .site-body p,
 .site-body li {
   max-width: 74ch;
-  font-size: 1em;
+  font-size: var(--main-font-size);
   color: var(--color-text-muted);
   line-height: 1.7;
 }
