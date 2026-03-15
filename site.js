@@ -48,8 +48,10 @@ function registerDeagoniaWebsite(AlpineInstance) {
       isLoading: false,
       currentSlug: "landing",
       activePage: null,
+      activeSectionId: "",
       tocHtml: "",
       siteBasePath: "/",
+      sectionObserver: null,
       tocObserver: null,
 
       async init() {
@@ -60,9 +62,12 @@ function registerDeagoniaWebsite(AlpineInstance) {
 
         this.syncDocumentMeta();
         this.bindBodyLinks();
+        this.refreshSectionBindings();
         this.refreshTocBindings();
+        this.applyCurrentHash(true, true);
 
         window.addEventListener("popstate", this.handlePopState.bind(this));
+        window.addEventListener("hashchange", this.handleHashChange.bind(this));
       },
 
       resolveSiteBasePath() {
@@ -80,7 +85,23 @@ function registerDeagoniaWebsite(AlpineInstance) {
         return this.siteBasePath + String((this.config.pageMap[slug] || {}).path || "");
       },
 
+      currentSections() {
+        if (!this.activePage || !Array.isArray(this.activePage.sections)) {
+          return [];
+        }
+
+        return this.activePage.sections;
+      },
+
+      sectionHref(sectionId) {
+        return this.pageHref(this.currentSlug) + "#" + encodeURIComponent(sectionId);
+      },
+
       toggleMenu() {
+        if (!this.activePage || this.activePage.menuMode !== "sections") {
+          return;
+        }
+
         var nextState = !this.menuOpen;
         this.menuOpen = nextState;
         if (nextState) {
@@ -89,6 +110,10 @@ function registerDeagoniaWebsite(AlpineInstance) {
       },
 
       toggleToc() {
+        if (!this.activePage || this.activePage.menuMode !== "toc") {
+          return;
+        }
+
         var nextState = !this.tocOpen;
         this.tocOpen = nextState;
         if (nextState) {
@@ -150,6 +175,42 @@ function registerDeagoniaWebsite(AlpineInstance) {
         }
       },
 
+      scrollToSection(sectionId, immediate, skipHistory) {
+        if (!sectionId || !this.activePage || this.activePage.menuMode !== "sections") {
+          return;
+        }
+
+        var section = document.getElementById(sectionId);
+        if (!section) {
+          return;
+        }
+
+        this.menuOpen = false;
+        this.activeSectionId = sectionId;
+        section.scrollIntoView({ behavior: immediate ? "auto" : "smooth", block: "start" });
+
+        if (!skipHistory) {
+          window.history.replaceState({ slug: this.currentSlug }, "", this.sectionHref(sectionId));
+        }
+      },
+
+      applyCurrentHash(immediate, skipHistory) {
+        if (!this.activePage || this.activePage.menuMode !== "sections") {
+          this.activeSectionId = "";
+          return;
+        }
+
+        var fallbackSection = this.currentSections()[0];
+        var hash = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
+
+        if (hash) {
+          this.scrollToSection(hash, immediate, skipHistory);
+          return;
+        }
+
+        this.activeSectionId = fallbackSection ? fallbackSection.id : "";
+      },
+
       async go(slug, immediate, skipHistory) {
         if (!this.config.pageMap[slug]) {
           return;
@@ -160,6 +221,11 @@ function registerDeagoniaWebsite(AlpineInstance) {
           if (slug !== "handbook") {
             this.tocOpen = false;
           }
+          window.scrollTo({ top: 0, behavior: immediate ? "auto" : "smooth" });
+          if (!skipHistory) {
+            window.history.replaceState({ slug: slug }, "", this.pageHref(slug));
+          }
+          this.applyCurrentHash(true, true);
           return;
         }
 
@@ -205,7 +271,9 @@ function registerDeagoniaWebsite(AlpineInstance) {
           this.tocHtml = tocHtml.trim();
           this.syncDocumentMeta();
           this.bindBodyLinks();
+          this.refreshSectionBindings();
           this.refreshTocBindings();
+          this.applyCurrentHash(true, true);
           window.scrollTo({ top: 0, behavior: immediate ? "auto" : "smooth" });
         } catch (error) {
           window.location.href = this.pageHref(slug);
@@ -219,10 +287,15 @@ function registerDeagoniaWebsite(AlpineInstance) {
       handlePopState() {
         var nextSlug = this.resolveSlugFromPath(window.location.pathname);
         if (nextSlug === this.currentSlug) {
+          this.applyCurrentHash(true, true);
           return;
         }
 
         this.go(nextSlug, true, true);
+      },
+
+      handleHashChange() {
+        this.applyCurrentHash(true, true);
       },
 
       bindBodyLinks() {
@@ -334,6 +407,62 @@ function registerDeagoniaWebsite(AlpineInstance) {
             this.tocObserver.observe(section);
           }.bind(this)
         );
+      },
+
+      refreshSectionBindings() {
+        if (this.sectionObserver) {
+          this.sectionObserver.disconnect();
+          this.sectionObserver = null;
+        }
+
+        if (!this.activePage || this.activePage.menuMode !== "sections") {
+          this.activeSectionId = "";
+          return;
+        }
+
+        var observedSections = this.currentSections()
+          .map(function (section) {
+            return document.getElementById(section.id);
+          })
+          .filter(Boolean);
+
+        if (observedSections.length === 0) {
+          this.activeSectionId = "";
+          return;
+        }
+
+        this.activeSectionId = observedSections[0].id;
+
+        if (!("IntersectionObserver" in window)) {
+          return;
+        }
+
+        var self = this;
+        this.sectionObserver = new IntersectionObserver(
+          function (entries) {
+            var visibleEntries = entries
+              .filter(function (entry) {
+                return entry.isIntersecting;
+              })
+              .sort(function (left, right) {
+                return left.boundingClientRect.top - right.boundingClientRect.top;
+              });
+
+            if (visibleEntries.length === 0) {
+              return;
+            }
+
+            self.activeSectionId = visibleEntries[0].target.id;
+          },
+          {
+            rootMargin: "-18% 0px -68% 0px",
+            threshold: [0.15, 0.5, 1],
+          }
+        );
+
+        observedSections.forEach(function (section) {
+          self.sectionObserver.observe(section);
+        });
       },
     };
   });

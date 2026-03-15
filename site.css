@@ -237,6 +237,10 @@ body::before {
   box-shadow: 0 10px 24px var(--color-black-A28);
 }
 
+.site-nav-link--section {
+  padding-inline: 16px;
+}
+
 .site-nav-discord {
   background: linear-gradient(135deg, var(--color-ember), var(--color-line-strong));
   color: var(--color-text-on-accent);
@@ -395,6 +399,10 @@ body::before {
 }
 
 .site-body section.level1 {
+  scroll-margin-top: 110px;
+}
+
+.site-body section.level2 {
   scroll-margin-top: 110px;
 }
 
