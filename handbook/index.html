@@ -5,20 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Webowa wersja podręcznika Deagonii z dynamicznie ładowanym spisem treści." />
   <title>Δεαγονία — Podręcznik</title>
-  <link rel="stylesheet" href="../site.css?v=0.0.47" />
+  <link rel="stylesheet" href="../site.css?v=0.0.49" />
   <script>
     window.DEAGONIA_WEBSITE_CONFIG = {
       initialPage: "handbook",
       siteTitle: "Δεαγονία",
-      assetVersion: "0.0.47",
+      assetVersion: "0.0.49",
       pageMap: {"landing":{"slug":"landing","path":"","menuMode":"pages","sections":[],"pageTitle":"Landing Deagonii","documentTitle":"Δεαγονία","description":"Krótki wstęp do Deagonii i wejście do podręcznika lub community.","showLandingArt":true,"showToc":false,"backdropImage":"cover.png"},"community":{"slug":"community","path":"community/","menuMode":"pages","sections":[],"pageTitle":"Community Deagonii","documentTitle":"Δεαγονία — Community","description":"Społeczność Deagonii i wejście na Discord projektu.","showLandingArt":false,"showToc":false,"backdropImage":"community-backdrop.png"},"handbook":{"slug":"handbook","path":"handbook/","menuMode":"toc","sections":[],"pageTitle":"Podręcznik Deagonii","documentTitle":"Δεαγονία — Podręcznik","description":"Webowa wersja podręcznika Deagonii z dynamicznie ładowanym spisem treści.","showLandingArt":false,"showToc":true,"backdropImage":""}}
     };
   </script>
-  <script defer src="../site.js?v=0.0.47"></script>
+  <script defer src="../site.js?v=0.0.49"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.8/dist/cdn.min.js?v=3.15.8"></script>
 </head>
 <body class="website-shell">
-  <div class="site-shell" id="top" x-data="deagoniaWebsite(window.DEAGONIA_WEBSITE_CONFIG)" x-init="init()" x-bind:data-page="currentSlug">
+  <div
+    class="site-shell"
+    id="top"
+    x-data="deagoniaWebsite(window.DEAGONIA_WEBSITE_CONFIG)"
+    x-init="init()"
+    x-bind:data-page="currentSlug"
+    x-bind:data-scrolled="isScrolled ? 'true' : 'false'"
+  >
     <div
       class="site-hero-backdrop"
       x-cloak
@@ -28,8 +35,8 @@
     >
       <img
         class="site-hero-backdrop-image"
-        src="../cover.png?v=0.0.47"
-        x-bind:src="activePage && activePage.backdropImage ? siteAssetHref(activePage.backdropImage) : '../cover.png?v=0.0.47'"
+        src="../cover.png?v=0.0.49"
+        x-bind:src="activePage && activePage.backdropImage ? siteAssetHref(activePage.backdropImage) : '../cover.png?v=0.0.49'"
         alt=""
         loading="eager"
         decoding="async"
