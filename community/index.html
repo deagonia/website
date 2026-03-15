@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Społeczność Deagonii i wejście na Discord projektu." />
   <title>Δεαγονία — Community</title>
-  <link rel="stylesheet" href="../site.css?v=0.0.23" />
+  <link rel="stylesheet" href="../site.css?v=0.0.25" />
   <script>
     window.DEAGONIA_WEBSITE_CONFIG = {
       initialPage: "community",
       siteTitle: "Δεαγονία",
-      assetVersion: "0.0.23",
-      pageMap: {"landing":{"slug":"landing","path":"","menuMode":"sections","sections":[{"id":"website-about","label":"O grze"},{"id":"website-echo","label":"Echo"},{"id":"website-entry","label":"Wejście"}],"pageTitle":"Landing Deagonii","documentTitle":"Δεαγονία","description":"Krótki wstęp do Deagonii i wejście do podręcznika lub community.","showLandingArt":true,"showToc":false},"community":{"slug":"community","path":"community/","menuMode":"sections","sections":[{"id":"community-discord","label":"Discord"},{"id":"community-what-you-get","label":"Po co"},{"id":"community-playtest","label":"Playtest"}],"pageTitle":"Community Deagonii","documentTitle":"Δεαγονία — Community","description":"Społeczność Deagonii i wejście na Discord projektu.","showLandingArt":false,"showToc":false},"handbook":{"slug":"handbook","path":"handbook/","menuMode":"toc","sections":[],"pageTitle":"Podręcznik Deagonii","documentTitle":"Δεαγονία — Podręcznik","description":"Webowa wersja podręcznika Deagonii z dynamicznie ładowanym spisem treści.","showLandingArt":false,"showToc":true}}
+      assetVersion: "0.0.25",
+      pageMap: {"landing":{"slug":"landing","path":"","menuMode":"pages","sections":[],"pageTitle":"Landing Deagonii","documentTitle":"Δεαγονία","description":"Krótki wstęp do Deagonii i wejście do podręcznika lub community.","showLandingArt":true,"showToc":false},"community":{"slug":"community","path":"community/","menuMode":"pages","sections":[],"pageTitle":"Community Deagonii","documentTitle":"Δεαγονία — Community","description":"Społeczność Deagonii i wejście na Discord projektu.","showLandingArt":false,"showToc":false},"handbook":{"slug":"handbook","path":"handbook/","menuMode":"toc","sections":[],"pageTitle":"Podręcznik Deagonii","documentTitle":"Δεαγονία — Podręcznik","description":"Webowa wersja podręcznika Deagonii z dynamicznie ładowanym spisem treści.","showLandingArt":false,"showToc":true}}
     };
   </script>
-  <script defer src="../site.js?v=0.0.23"></script>
+  <script defer src="../site.js?v=0.0.25"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.8/dist/cdn.min.js?v=3.15.8"></script>
 </head>
 <body class="website-shell">
@@ -26,7 +26,7 @@
       x-transition.opacity.duration.220ms
       aria-hidden="true"
     >
-      <img class="site-hero-backdrop-image" src="../cover.png?v=0.0.23" alt="" loading="eager" decoding="async" />
+      <img class="site-hero-backdrop-image" src="../cover.png?v=0.0.25" alt="" loading="eager" decoding="async" />
       <div class="site-hero-backdrop-scrim"></div>
     </div>
 
@@ -38,7 +38,7 @@
           class="site-menu-toggle"
           type="button"
           x-cloak
-          x-show="activePage && activePage.menuMode === 'sections'"
+          x-show="activePage && activePage.menuMode === 'pages'"
           aria-controls="site-nav-menu"
           x-bind:aria-expanded="menuOpen ? 'true' : 'false'"
           aria-label="Menu"
@@ -57,35 +57,40 @@
           id="site-nav-menu"
           data-open="false"
           x-cloak
-          x-show="activePage && activePage.menuMode === 'sections'"
+          x-show="activePage && activePage.menuMode === 'pages'"
           x-bind:data-open="menuOpen ? 'true' : 'false'"
-          aria-label="Sekcje strony"
+          aria-label="Menu strony"
         >
           <a
             class="site-nav-link site-nav-link--home"
             href="../"
             x-bind:href="pageHref('landing')"
+            x-bind:class="{ 'is-active': currentSlug === 'landing' }"
+            x-bind:aria-current="currentSlug === 'landing' ? 'page' : null"
             @click.prevent="go('landing')"
           >
-            <svg class="site-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 10.5 12 3l9 7.5"></path>
-              <path d="M5.25 9.75V21h13.5V9.75"></path>
-            </svg>
             <span class="site-nav-label">Strona główna</span>
           </a>
-
-          <template x-for="section in currentSections()" :key="section.id">
-            <a
-              class="site-nav-link site-nav-link--section"
-              href="#"
-              x-bind:href="sectionHref(section.id)"
-              x-bind:class="{ 'is-active': activeSectionId === section.id }"
-              x-bind:aria-current="activeSectionId === section.id ? 'location' : null"
-              @click.prevent="scrollToSection(section.id)"
-            >
-              <span class="site-nav-label" x-text="section.label"></span>
-            </a>
-          </template>
+          <a
+            class="site-nav-link site-nav-link--page"
+            href="../handbook/"
+            x-bind:href="pageHref('handbook')"
+            x-bind:class="{ 'is-active': currentSlug === 'handbook' }"
+            x-bind:aria-current="currentSlug === 'handbook' ? 'page' : null"
+            @click.prevent="go('handbook')"
+          >
+            <span class="site-nav-label">Podręcznik</span>
+          </a>
+          <a
+            class="site-nav-link site-nav-link--page"
+            href="../community/"
+            x-bind:href="pageHref('community')"
+            x-bind:class="{ 'is-active': currentSlug === 'community' }"
+            x-bind:aria-current="currentSlug === 'community' ? 'page' : null"
+            @click.prevent="go('community')"
+          >
+            <span class="site-nav-label">Społeczność</span>
+          </a>
         </nav>
 
         <button

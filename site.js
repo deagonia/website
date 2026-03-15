@@ -98,7 +98,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
       },
 
       toggleMenu() {
-        if (!this.activePage || this.activePage.menuMode !== "sections") {
+        if (!this.activePage || this.activePage.menuMode === "toc") {
           return;
         }
 

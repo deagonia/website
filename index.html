@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Krótki wstęp do Deagonii i wejście do podręcznika lub community." />
   <title>Δεαγονία</title>
-  <link rel="stylesheet" href="site.css?v=0.0.23" />
+  <link rel="stylesheet" href="site.css?v=0.0.25" />
   <script>
     window.DEAGONIA_WEBSITE_CONFIG = {
       initialPage: "landing",
       siteTitle: "Δεαγονία",
-      assetVersion: "0.0.23",
-      pageMap: {"landing":{"slug":"landing","path":"","menuMode":"sections","sections":[{"id":"website-about","label":"O grze"},{"id":"website-echo","label":"Echo"},{"id":"website-entry","label":"Wejście"}],"pageTitle":"Landing Deagonii","documentTitle":"Δεαγονία","description":"Krótki wstęp do Deagonii i wejście do podręcznika lub community.","showLandingArt":true,"showToc":false},"community":{"slug":"community","path":"community/","menuMode":"sections","sections":[{"id":"community-discord","label":"Discord"},{"id":"community-what-you-get","label":"Po co"},{"id":"community-playtest","label":"Playtest"}],"pageTitle":"Community Deagonii","documentTitle":"Δεαγονία — Community","description":"Społeczność Deagonii i wejście na Discord projektu.","showLandingArt":false,"showToc":false},"handbook":{"slug":"handbook","path":"handbook/","menuMode":"toc","sections":[],"pageTitle":"Podręcznik Deagonii","documentTitle":"Δεαγονία — Podręcznik","description":"Webowa wersja podręcznika Deagonii z dynamicznie ładowanym spisem treści.","showLandingArt":false,"showToc":true}}
+      assetVersion: "0.0.25",
+      pageMap: {"landing":{"slug":"landing","path":"","menuMode":"pages","sections":[],"pageTitle":"Landing Deagonii","documentTitle":"Δεαγονία","description":"Krótki wstęp do Deagonii i wejście do podręcznika lub community.","showLandingArt":true,"showToc":false},"community":{"slug":"community","path":"community/","menuMode":"pages","sections":[],"pageTitle":"Community Deagonii","documentTitle":"Δεαγονία — Community","description":"Społeczność Deagonii i wejście na Discord projektu.","showLandingArt":false,"showToc":false},"handbook":{"slug":"handbook","path":"handbook/","menuMode":"toc","sections":[],"pageTitle":"Podręcznik Deagonii","documentTitle":"Δεαγονία — Podręcznik","description":"Webowa wersja podręcznika Deagonii z dynamicznie ładowanym spisem treści.","showLandingArt":false,"showToc":true}}
     };
   </script>
-  <script defer src="site.js?v=0.0.23"></script>
+  <script defer src="site.js?v=0.0.25"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.8/dist/cdn.min.js?v=3.15.8"></script>
 </head>
 <body class="website-shell">
@@ -26,7 +26,7 @@
       x-transition.opacity.duration.220ms
       aria-hidden="true"
     >
-      <img class="site-hero-backdrop-image" src="cover.png?v=0.0.23" alt="" loading="eager" decoding="async" />
+      <img class="site-hero-backdrop-image" src="cover.png?v=0.0.25" alt="" loading="eager" decoding="async" />
       <div class="site-hero-backdrop-scrim"></div>
     </div>
 
@@ -38,7 +38,7 @@
           class="site-menu-toggle"
           type="button"
           x-cloak
-          x-show="activePage && activePage.menuMode === 'sections'"
+          x-show="activePage && activePage.menuMode === 'pages'"
           aria-controls="site-nav-menu"
           x-bind:aria-expanded="menuOpen ? 'true' : 'false'"
           aria-label="Menu"
@@ -57,35 +57,40 @@
           id="site-nav-menu"
           data-open="false"
           x-cloak
-          x-show="activePage && activePage.menuMode === 'sections'"
+          x-show="activePage && activePage.menuMode === 'pages'"
           x-bind:data-open="menuOpen ? 'true' : 'false'"
-          aria-label="Sekcje strony"
+          aria-label="Menu strony"
         >
           <a
             class="site-nav-link site-nav-link--home"
             href="./"
             x-bind:href="pageHref('landing')"
+            x-bind:class="{ 'is-active': currentSlug === 'landing' }"
+            x-bind:aria-current="currentSlug === 'landing' ? 'page' : null"
             @click.prevent="go('landing')"
           >
-            <svg class="site-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 10.5 12 3l9 7.5"></path>
-              <path d="M5.25 9.75V21h13.5V9.75"></path>
-            </svg>
             <span class="site-nav-label">Strona główna</span>
           </a>
-
-          <template x-for="section in currentSections()" :key="section.id">
-            <a
-              class="site-nav-link site-nav-link--section"
-              href="#"
-              x-bind:href="sectionHref(section.id)"
-              x-bind:class="{ 'is-active': activeSectionId === section.id }"
-              x-bind:aria-current="activeSectionId === section.id ? 'location' : null"
-              @click.prevent="scrollToSection(section.id)"
-            >
-              <span class="site-nav-label" x-text="section.label"></span>
-            </a>
-          </template>
+          <a
+            class="site-nav-link site-nav-link--page"
+            href="./handbook/"
+            x-bind:href="pageHref('handbook')"
+            x-bind:class="{ 'is-active': currentSlug === 'handbook' }"
+            x-bind:aria-current="currentSlug === 'handbook' ? 'page' : null"
+            @click.prevent="go('handbook')"
+          >
+            <span class="site-nav-label">Podręcznik</span>
+          </a>
+          <a
+            class="site-nav-link site-nav-link--page"
+            href="./community/"
+            x-bind:href="pageHref('community')"
+            x-bind:class="{ 'is-active': currentSlug === 'community' }"
+            x-bind:aria-current="currentSlug === 'community' ? 'page' : null"
+            @click.prevent="go('community')"
+          >
+            <span class="site-nav-label">Społeczność</span>
+          </a>
         </nav>
 
         <button
@@ -114,58 +119,48 @@
     <main class="site-frame" x-bind:class="{ 'site-frame--with-toc': activePage && activePage.showToc }">
       <article class="site-body" x-ref="body" x-bind:data-loading="isLoading ? 'true' : 'false'"><section id="website-index" class="level1">
   <h1>Deagonia</h1>
-  <p class="site-landing-kicker">postmito gra rytalna transformacyjne RPG</p>
+  <p class="site-landing-kicker">
+    <span>postmito</span>
+    <span>gra rytalna</span>
+    <span>transformacyjne RPG</span>
+  </p>
   <blockquote>
     <p>Deagonia to gra o Cieniu, koszcie decyzji i Śladzie, który zostaje po scenie.</p>
   </blockquote>
-  <section id="website-about" class="level2">
-    <h2>O grze</h2>
-    <p>To RPG o decyzjach pod naciskiem, a nie o wygranej. Pytanie nie brzmi, czy postać odniesie sukces bez ceny. Pytanie brzmi, co próbuje ochronić i ile za to odda.</p>
-  </section>
+  <div class="site-entry-grid">
+    <article class="site-entry-card">
+      <div class="site-entry-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 7v14"></path>
+          <path d="M3 18V5a2 2 0 0 1 2-2h7"></path>
+          <path d="M12 3h7a2 2 0 0 1 2 2v13"></path>
+          <path d="M3 18a2 2 0 0 0 2 2h7"></path>
+          <path d="M21 18a2 2 0 0 1-2 2h-7"></path>
+        </svg>
+      </div>
+      <h3>Podręcznik</h3>
+      <p>Wejdź w rytm gry, procedury scen i ton świata bez przechodzenia przez PDF.</p>
+      <a class="site-cta site-cta--primary" href="handbook/">
+        <span>Przejdź do podręcznika</span>
+      </a>
+    </article>
 
-  <section id="website-echo" class="level2">
-    <h2>Echo</h2>
-    <p>Echo mówi językiem mitu po przecieku Warstwy Pierwszej: Grecją wyroczni, tabu, agonu i reliktów, które stały się rytuałem. To świat, w którym napięcie nie prowadzi do triumfu, tylko do rozpoznania kosztu.</p>
-  </section>
-
-  <section id="website-entry" class="level2">
-    <h2>Wejście</h2>
-    <p>Wybierz wejście, od którego chcesz zacząć. Jedno prowadzi prosto do tekstu podręcznika, drugie do rozmowy, iteracji i playtestu.</p>
-    <div class="site-entry-grid">
-      <article class="site-entry-card">
-        <div class="site-entry-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 7v14"></path>
-            <path d="M3 18V5a2 2 0 0 1 2-2h7"></path>
-            <path d="M12 3h7a2 2 0 0 1 2 2v13"></path>
-            <path d="M3 18a2 2 0 0 0 2 2h7"></path>
-            <path d="M21 18a2 2 0 0 1-2 2h-7"></path>
-          </svg>
-        </div>
-        <h3>Podręcznik</h3>
-        <p>Wejdź w rytm gry, procedury scen i ton świata bez przechodzenia przez PDF.</p>
-        <a class="site-cta site-cta--primary" href="handbook/">
-          <span>Przejdź do podręcznika</span>
-        </a>
-      </article>
-
-      <article class="site-entry-card">
-        <div class="site-entry-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="10" cy="7" r="3"></circle>
-            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a3 3 0 0 1 0 5.75"></path>
-          </svg>
-        </div>
-        <h3>Community</h3>
-        <p>Dołącz do rozmowy o zmianach, pytaniach i playtestach, zanim trafią do kolejnej wersji.</p>
-        <a class="site-cta site-cta--secondary" href="community/">
-          <span>Dołącz do Community</span>
-        </a>
-      </article>
-    </div>
-  </section>
+    <article class="site-entry-card">
+      <div class="site-entry-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="10" cy="7" r="3"></circle>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a3 3 0 0 1 0 5.75"></path>
+        </svg>
+      </div>
+      <h3>Społeczność</h3>
+      <p>Dołącz do rozmowy o zmianach, pytaniach i playtestach, zanim trafią do kolejnej wersji.</p>
+      <a class="site-cta site-cta--secondary" href="community/">
+        <span>Dołącz do społeczności</span>
+      </a>
+    </article>
+  </div>
 </section></article>
       <aside
         class="site-toc"

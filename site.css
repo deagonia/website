@@ -259,7 +259,7 @@ body::before {
   border: 1px solid var(--color-line-A12);
 }
 
-.site-nav-link--section {
+.site-nav-link--page {
   padding-inline: 16px;
 }
 
@@ -787,7 +787,11 @@ body::before {
 }
 
 .site-landing-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
+  width: fit-content;
   margin: 0 auto 2.6rem;
   color: var(--color-text-highlight);
   font-family: var(--font-ui);
@@ -798,6 +802,12 @@ body::before {
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.site-landing-kicker span + span::before {
+  content: "|";
+  margin-inline: 0.44em;
+  color: var(--color-text-faint);
 }
 
 .site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote,
@@ -1072,5 +1082,9 @@ body::before {
     margin-bottom: 2.2rem;
     font-size: calc(0.18rem + 1.7dvw);
     letter-spacing: 0.05em;
+  }
+
+  .site-landing-kicker span + span::before {
+    margin-inline: 0.34em;
   }
 }
