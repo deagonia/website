@@ -258,24 +258,20 @@ body::before {
 }
 
 .site-frame {
+  width: min(100%, 1180px);
+  margin: 0 auto;
   display: grid;
   gap: 24px;
 }
 
-.site-main {
-  min-width: 0;
-  width: min(100%, 1180px);
-  margin: 0 auto;
-}
-
-.site-frame--with-toc .site-main {
-  width: auto;
-  margin: 0;
+.site-frame--with-toc {
+  width: min(100%, 1480px);
 }
 
 .site-body {
   position: relative;
-  padding: clamp(22px, 3vw, 34px);
+  min-width: 0;
+  padding: clamp(20px, 2.4vw, 30px);
   border: 1px solid var(--color-line-A10);
   border-radius: var(--radius-xl);
   background: var(--color-surface-A90);
@@ -709,8 +705,8 @@ body::before {
   transform: translateX(2px);
 }
 
-.site-shell[data-page="landing"] .site-main,
-.site-shell[data-page="community"] .site-main {
+.site-shell[data-page="landing"] .site-frame,
+.site-shell[data-page="community"] .site-frame {
   width: min(100%, 1080px);
 }
 
@@ -767,17 +763,23 @@ body::before {
 .site-shell[data-page="landing"] .site-body section.level2,
 .site-shell[data-page="community"] .site-body section.level2 {
   margin-top: 18px;
-  padding: clamp(18px, 3vw, 28px);
-  border: 1px solid var(--color-line-A12);
-  border-radius: 28px;
-  background: var(--color-surface-A90);
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.16);
-  backdrop-filter: blur(14px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .site-shell[data-page="landing"] .site-body section.level2 h2,
 .site-shell[data-page="community"] .site-body section.level2 h2 {
   margin-top: 0;
+}
+
+.site-shell[data-page="landing"] .site-body section.level2 + section.level2,
+.site-shell[data-page="community"] .site-body section.level2 + section.level2 {
+  padding-top: 20px;
+  border-top: 1px solid var(--color-line-A12);
 }
 
 @media (min-width: 1100px) {
@@ -807,7 +809,7 @@ body::before {
 
 @media (max-width: 1099px) {
   .site-body {
-    padding: 18px;
+    padding: 16px;
   }
 
   .site-body > section.level1:first-of-type {
@@ -829,8 +831,8 @@ body::before {
 @media (max-width: 720px) {
   .site-shell {
     --landing-hero-height: clamp(220px, 82vw, 420px);
-    padding-inline: 12px;
-    padding-bottom: 40px;
+    padding-inline: 10px;
+    padding-bottom: 28px;
   }
 
   .site-bar {
@@ -897,9 +899,9 @@ body::before {
   .site-nav-toggle {
     width: 100%;
     justify-content: flex-start;
-    padding: 12px 14px;
+    padding: 11px 13px;
     border-radius: 14px;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
 
   .site-nav-icon {
@@ -922,7 +924,8 @@ body::before {
 
   .site-body p,
   .site-body li {
-    font-size: 1rem;
+    font-size: 0.98rem;
+    line-height: 1.6;
   }
 
   .site-action-row {
@@ -930,17 +933,36 @@ body::before {
   }
 
   .site-cta {
-    min-height: 52px;
-    font-size: 0.8rem;
+    min-height: 50px;
+    font-size: 0.77rem;
+    letter-spacing: 0.07em;
   }
 
   .site-entry-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .site-entry-card {
-    padding: 18px 16px;
-    border-radius: 22px;
+    padding: 16px 14px;
+    border-radius: 20px;
+    gap: 10px;
+  }
+
+  .site-entry-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 16px;
+  }
+
+  .site-shell[data-page="landing"] .site-body,
+  .site-shell[data-page="community"] .site-body {
+    padding-top: calc(var(--landing-hero-height) - 88px);
+  }
+
+  .site-shell[data-page="landing"] .site-body section.level2 + section.level2,
+  .site-shell[data-page="community"] .site-body section.level2 + section.level2 {
+    padding-top: 16px;
   }
 
   .site-body table {
