@@ -5,96 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="generator" content="pandoc" />
     <meta name="author" content="Temenos" />
-      <meta name="description" content="Jedna strona z podstawowymi informacjami o Deagonii i webową wersją podręcznika." />
+      <meta name="description" content="Manifest projektu Deagonia i pierwsze wejście do świata gry." />
     <title>Δεαγονία</title>
-  <link rel="stylesheet" href="site.css?v=0.0.3" />
+  <link rel="stylesheet" href="site.css?v=0.0.5" />
 </head>
-<body>
+<body class="website-page website-page--landing">
   <div class="site-shell" id="top">
     <header class="site-bar">
-      <a class="site-brand" href="#top">Δεαγονία</a>
-      <nav class="site-nav" aria-label="Mikro menu">
-        <a class="site-nav-link" href="#website-home" aria-label="Info">
-          <svg class="site-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 16v-4"></path>
-            <path d="M12 8h.01"></path>
-          </svg>
-          <span class="site-nav-label">Info</span>
-        </a>
-        <a class="site-nav-link" href="#website-book" aria-label="Podręcznik">
-          <svg class="site-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 7v14"></path>
-            <path d="M3 18V5a2 2 0 0 1 2-2h7"></path>
-            <path d="M12 3h7a2 2 0 0 1 2 2v13"></path>
-            <path d="M3 18a2 2 0 0 0 2 2h7"></path>
-            <path d="M21 18a2 2 0 0 1-2 2h-7"></path>
-          </svg>
-          <span class="site-nav-label">Podręcznik</span>
-        </a>
-                <a class="site-nav-link site-nav-discord" href="https://discord.gg/nuSfS8GpDj" target="_blank" rel="noreferrer" aria-label="Discord">
-          <svg class="site-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M18.6 5.4a16.8 16.8 0 0 0-4.2-1.3l-.2.4a14.6 14.6 0 0 1 3.5 1.4 11.7 11.7 0 0 0-3.3-1 10.9 10.9 0 0 0-4.8 0 11.7 11.7 0 0 0-3.3 1 14.6 14.6 0 0 1 3.5-1.4l-.2-.4a16.8 16.8 0 0 0-4.2 1.3C3 9.7 2.3 13.7 2.6 17.7a16.9 16.9 0 0 0 5.1 2.6l1.1-1.8a10.9 10.9 0 0 1-1.7-.8l.4-.3c3.3 1.5 6.9 1.5 10.2 0l.4.3a10.9 10.9 0 0 1-1.7.8l1.1 1.8a16.9 16.9 0 0 0 5.1-2.6c.3-4-.4-8-3-12.3Z"></path>
-            <circle cx="9.2" cy="12.4" r="1.1" fill="currentColor" stroke="none"></circle>
-            <circle cx="14.8" cy="12.4" r="1.1" fill="currentColor" stroke="none"></circle>
-          </svg>
-          <span class="site-nav-label">Discord</span>
-        </a>
-                <button class="site-nav-toggle" type="button" data-toc-toggle aria-expanded="false" aria-controls="site-toc" aria-label="Spis treści">
-          <svg class="site-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M8 6h13"></path>
-            <path d="M8 12h13"></path>
-            <path d="M8 18h13"></path>
-            <path d="M3 6h.01"></path>
-            <path d="M3 12h.01"></path>
-            <path d="M3 18h.01"></path>
-          </svg>
-          <span class="site-nav-label">Spis treści</span>
-        </button>
+      <a class="site-brand" href="./">Δεαγονία</a>
+      <nav class="site-nav" aria-label="Nawigacja strony">
+        <a class="site-nav-link is-active" href="./" aria-current="page" aria-label="Manifest"><svg class="site-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1Z"></path><path d="M15 3v4h4"></path><path d="M9 12h6"></path><path d="M9 16h6"></path><path d="M9 8h2"></path></svg><span class="site-nav-label">Manifest</span></a>
+<a class="site-nav-link" href="community/" aria-label="Community"><svg class="site-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.6 5.4a16.8 16.8 0 0 0-4.2-1.3l-.2.4a14.6 14.6 0 0 1 3.5 1.4 11.7 11.7 0 0 0-3.3-1 10.9 10.9 0 0 0-4.8 0 11.7 11.7 0 0 0-3.3 1 14.6 14.6 0 0 1 3.5-1.4l-.2-.4a16.8 16.8 0 0 0-4.2 1.3C3 9.7 2.3 13.7 2.6 17.7a16.9 16.9 0 0 0 5.1 2.6l1.1-1.8a10.9 10.9 0 0 1-1.7-.8l.4-.3c3.3 1.5 6.9 1.5 10.2 0l.4.3a10.9 10.9 0 0 1-1.7.8l1.1 1.8a16.9 16.9 0 0 0 5.1-2.6c.3-4-.4-8-3-12.3Z"></path><circle cx="9.2" cy="12.4" r="1.1" fill="currentColor" stroke="none"></circle><circle cx="14.8" cy="12.4" r="1.1" fill="currentColor" stroke="none"></circle></svg><span class="site-nav-label">Community</span></a>
+<a class="site-nav-link" href="handbook/" aria-label="Podręcznik"><svg class="site-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18V5a2 2 0 0 1 2-2h7"></path><path d="M12 3h7a2 2 0 0 1 2 2v13"></path><path d="M3 18a2 2 0 0 0 2 2h7"></path><path d="M21 18a2 2 0 0 1-2 2h-7"></path></svg><span class="site-nav-label">Podręcznik</span></a>
       </nav>
     </header>
 
     <div class="site-frame">
       <main class="site-main">
         <article class="site-body">
-          <div class="site-landing-art" aria-hidden="true">
-            <div class="site-landing-art-halo"></div>
-            <div class="site-landing-art-card">
-              <img class="site-landing-art-image" src="cover.png?v=0.0.3" alt="" loading="eager" decoding="async" />
-            </div>
-          </div>
+          <div class="site-landing-art" aria-hidden="true"><div class="site-landing-art-halo"></div><div class="site-landing-art-card"><img class="site-landing-art-image" src="cover.png?v=0.0.5" alt="" loading="eager" decoding="async" /></div></div>
           <section id="website-index" class="level1">
           <h1>Δεαγονία</h1>
           <blockquote>
           <p>Deagonia nie pyta, kto wygra. Pyta, kto zapłaci cenę decyzji i jaki Ślad zostanie po scenie.</p>
           </blockquote>
-          <p>Deagonia to gra o rozpoznaniu Cienia, koszcie decyzji i Śladzie, który zostaje po przejściu sceny.</p>
-          <p>Echo nie jest alternatywną rzeczywistością ani czystym snem. To odpowiedź psyche na świat, którego nie dało się już udźwignąć: mitologiczna Grecja po przecieku Warstwy Pierwszej, z tabu, wyroczniami, agonem i reliktami, które stały się rytuałem.</p>
-          <p>Ta strona jest prostą bramą do projektu: miejscem dla podstawowych informacji, wejściem do webowej wersji podręcznika i punktem kontaktu ze społecznością.</p>
-          <section id="website-home" class="level2">
-          <h2>Czym jest Deagonia</h2>
-          <p>Deagonia jest grą fabularną o decyzjach pod naciskiem. Nie prowadzi do wygranej, przewagi ani bezkarnej eskalacji. Prowadzi do rozpoznania tego, co postać próbuje ochronić, ile to kosztuje i co zostaje po rozstrzygnięciu.</p>
-          <p>To gra o Cieniu, który nie jest potworem do pokonania, tylko napięciem do rozpoznania. O Integracji, która pozostaje możliwością przemiany, a nie obowiązkiem. O Śladzie, który zostaje w świecie, relacjach i w postaci.</p>
+          <p>Deagonia jest grą o rozpoznaniu Cienia, koszcie decyzji i Śladzie, który zostaje po scenie. Nie prowadzi do przewagi ani do bezkarnej eskalacji. Prowadzi do pytania: co próbujesz ochronić i ile to naprawdę kosztuje.</p>
+          <p>Echo nie jest alternatywną rzeczywistością ani luźnym snem. To odpowiedź psyche na świat, którego nie dało się już utrzymać: mitologiczna Grecja po przecieku Warstwy Pierwszej, z tabu, wyroczniami, agonem i reliktami, które stały się rytuałem.</p>
+          <p>Na tej stronie zaczynasz od manifestu. Jeśli chcesz wejść głębiej, idź dalej do <a href="community/">Community</a> albo do <a href="handbook/">Podręcznika</a>.</p>
+          <section id="jak-wejść-do-deagonii" class="level2">
+          <h2>Jak wejść do Deagonii</h2>
+          <p>Zacznij od manifestu, jeśli chcesz zrozumieć rytm projektu i jego stawkę. Wejdź do Community, jeśli chcesz śledzić rozwój i rozmawiać o zmianach. Otwórz Podręcznik, jeśli chcesz czytać już webową wersję materiału z pełnym spisem treści.</p>
+          <p>To nie jest strona sprzedażowa. To jest brama do projektu, który dojrzewa w tekście, rozmowie i kolejnych przejściach między warstwami.</p>
           </section>
-          <section id="jak-działa-gra" class="level2">
-          <h2>Jak działa gra</h2>
-          <p>W Deagonii nie ma rzutów ani statystyk. Działasz, płacąc żetonami Zasobów Psyche i opisując, z jakiej energii bierze się twój ruch. Pytanie nie brzmi: „czy się uda?”, tylko: „czym za to płacisz?”.</p>
-          <p>Sesje buduje się wokół scen, Testów i Progów. Test przesuwa lokalną stawkę. Próg zmienia stan świata i postaci, bo porażka jest w nim nieodwracalna albo śmiertelna. Po najmocniejszych scenach zapisujesz Ślad: krótki znak ceny, który pracuje dalej w fikcji.</p>
-          <p>Pauza bezpieczeństwa nie jest dodatkiem do klimatu. Jest twardą regułą stołu. Jeśli ktoś mówi „pauza”, gra zatrzymuje się natychmiast.</p>
-          </section>
-          <section id="dla-kogo-jest-ta-gra" class="level2">
-          <h2>Dla kogo jest ta gra</h2>
-          <p>To projekt dla osób, które chcą grać w symbol, koszt i kierunek, a nie w build, loot i power fantasy. Dla stołów, które lubią klarowną procedurę, ale potrzebują też tonu mitycznego, gęstego i poważnego.</p>
-          <p>Jeśli szukasz gry o sprawczości bez ceny, to nie jest ten język. Jeśli interesuje cię mit, psyche, stawka i przemiana, jesteś we właściwym miejscu.</p>
-          </section>
-          <section id="jak-czytać-ten-website" class="level2">
-          <h2>Jak czytać ten website</h2>
-          <p>Webowa wersja podręcznika nie musi powielać PDF-a jeden do jednego. Ma być selektywna, czytelna i wygodna do nawigacji. Najpierw publikujemy teksty, które najczyściej niosą założenia gry i dają dobry punkt wejścia do świata.</p>
-          <p>Jeśli chcesz śledzić rozwój projektu, dołączyć do rozmowy albo zobaczyć, jak materiał dojrzewa między kolejnymi wersjami, wejdź na serwer Discord Deagonii.</p>
-          </section>
-          <section id="website-book" class="level2">
-          <h2>Webowy podręcznik</h2>
-          <p>Na start publikujemy Manifest Deagonii.</p>
+          <section id="website-manifest" class="level2">
+          <h2>Manifest Deagonii</h2>
           <section id="rulebook-manifest" class="level3">
           <h3>Deagonia: Manifest</h3>
           <p>Deagonia nie pyta, kto wygra. Pyta, kto zapłaci cenę decyzji i jaki Ślad zostanie po scenie.</p>
@@ -170,33 +114,10 @@
         </article>
       </main>
 
-      <aside class="site-toc" id="site-toc" data-toc-panel aria-label="Spis treści">
-        <div class="site-toc-card">
-          <p class="site-toc-kicker">Nawigacja</p>
-                    <ul>
-                    <li><a href="#website-index">Δεαγονία</a>
-                    <ul>
-                    <li><a href="#website-home">Czym jest Deagonia</a></li>
-                    <li><a href="#jak-działa-gra">Jak działa gra</a></li>
-                    <li><a href="#dla-kogo-jest-ta-gra">Dla kogo jest ta gra</a></li>
-                    <li><a href="#jak-czytać-ten-website">Jak czytać ten website</a></li>
-                    <li><a href="#website-book">Webowy podręcznik</a>
-                    <ul>
-                    <li><a href="#rulebook-manifest">Deagonia: Manifest</a></li>
-                    </ul></li>
-                    </ul></li>
-                    </ul>
-          
-                    <div class="site-discord-card">
-            <p class="site-toc-kicker">Społeczność</p>
-            <p class="site-discord-copy">Dołącz do serwera Discord Deagonii i śledź rozwój projektu.</p>
-            <a class="site-discord-cta" href="https://discord.gg/nuSfS8GpDj" target="_blank" rel="noreferrer">Wejdź na Discord</a>
-          </div>
-                  </div>
-      </aside>
+      
     </div>
   </div>
 
-  <script src="site.js?v=0.0.3"></script>
+  <script src="site.js?v=0.0.5"></script>
 </body>
 </html>

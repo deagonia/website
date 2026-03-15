@@ -217,6 +217,14 @@ body::before {
   background: var(--color-white-A12);
 }
 
+.site-nav-link.is-active,
+.site-nav-link.is-active:hover,
+.site-nav-link.is-active:focus-visible {
+  background: linear-gradient(135deg, var(--color-accent-deep), var(--color-accent));
+  color: var(--color-text-on-accent);
+  box-shadow: 0 10px 24px var(--color-black-A28);
+}
+
 .site-nav-discord {
   background: linear-gradient(135deg, var(--color-ember), var(--color-line-strong));
   color: var(--color-text-on-accent);
@@ -229,6 +237,13 @@ body::before {
 
 .site-main {
   min-width: 0;
+  width: min(100%, 1180px);
+  margin: 0 auto;
+}
+
+.site-frame--with-toc .site-main {
+  width: auto;
+  margin: 0;
 }
 
 .site-body {
@@ -428,6 +443,18 @@ body::before {
   text-decoration-color: currentColor;
 }
 
+.site-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 1.4rem 0 0;
+}
+
+.site-action-row p {
+  margin: 0;
+  padding: 0;
+}
+
 .site-body blockquote {
   margin: 1.2rem 0;
   padding: 0.1rem 0 0.1rem 1rem;
@@ -620,7 +647,7 @@ body::before {
 }
 
 @media (min-width: 1100px) {
-  .site-frame {
+  .site-frame--with-toc {
     grid-template-columns: minmax(0, 1fr) 320px;
     align-items: start;
   }
@@ -720,6 +747,10 @@ body::before {
   .site-body p,
   .site-body li {
     font-size: 1rem;
+  }
+
+  .site-action-row {
+    flex-direction: column;
   }
 
   .site-body table {
