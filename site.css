@@ -1095,6 +1095,15 @@ body::before {
   color: var(--color-text-muted);
 }
 
+.site-shell[data-page="handbook"] .site-body section.level1 + section.level1 {
+  margin-top: 5.2rem;
+}
+
+.site-shell[data-page="handbook"] .site-body section.level1 + section.level1 > h1:first-child {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
 .site-shell[data-page="handbook"] .site-body section.level2 + section.level2 {
   margin-top: 4.4rem;
 }
