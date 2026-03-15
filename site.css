@@ -742,6 +742,7 @@ body::before {
 }
 
 .site-toc {
+  --toc-footer-shift: 0px;
   position: fixed;
   inset: 84px 16px 16px auto;
   width: min(340px, calc(100vw - 32px));
@@ -967,6 +968,7 @@ body::before {
   box-shadow: none;
 }
 
+.site-shell[data-page="handbook"] .site-body section.level1,
 .site-shell[data-page="handbook"] .site-body section.level2,
 .site-shell[data-page="handbook"] .site-body section.level3,
 .site-shell[data-page="handbook"] .site-body section.level4 {
@@ -1264,12 +1266,12 @@ body::before {
     bottom: auto;
     left: auto;
     width: var(--toc-width);
-    max-height: calc(100vh - 110px);
-    transform: none;
+    max-height: calc(100vh - 110px - var(--toc-footer-shift));
+    transform: translateY(calc(var(--toc-footer-shift) * -1));
   }
 
   .site-toc-card {
-    max-height: calc(100vh - 110px);
+    max-height: calc(100vh - 110px - var(--toc-footer-shift));
   }
 
   .site-nav-toggle {

@@ -53,6 +53,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
       tocQuery: "",
       tocHasNoResults: false,
       isScrolled: false,
+      activeTocEntryId: "",
       siteBasePath: "/",
       sectionObserver: null,
       tocObserver: null,
@@ -129,6 +130,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
         this.tocOpen = nextState;
         if (nextState) {
           this.menuOpen = false;
+          this.$nextTick(this.syncActiveTocLink.bind(this, true));
         }
       },
 
@@ -353,12 +355,14 @@ function registerDeagoniaWebsite(AlpineInstance) {
         if (!this.activePage || !this.activePage.showToc || !this.$refs.toc) {
           this.tocHtml = "";
           this.tocHasNoResults = false;
+          this.activeTocEntryId = "";
           return;
         }
 
         this.tocHtml = this.$refs.toc.innerHTML.trim();
         if (!this.tocHtml) {
           this.tocHasNoResults = false;
+          this.activeTocEntryId = "";
           return;
         }
 
@@ -447,11 +451,13 @@ function registerDeagoniaWebsite(AlpineInstance) {
 
       syncScrollState() {
         this.isScrolled = window.scrollY > 8;
+        this.syncTocFooterClearance();
         this.syncActiveTocLink();
       },
 
-      syncActiveTocLink() {
+      syncActiveTocLink(forceCenter) {
         if (!this.activePage || !this.activePage.showToc || !Array.isArray(this.tocEntries) || this.tocEntries.length === 0) {
+          this.activeTocEntryId = "";
           return;
         }
 
@@ -464,9 +470,73 @@ function registerDeagoniaWebsite(AlpineInstance) {
           }
         });
 
+        var previousEntryId = this.activeTocEntryId;
+        this.activeTocEntryId = currentEntry.id;
+
         this.tocEntries.forEach(function (entry) {
           entry.link.classList.toggle("is-active", entry === currentEntry);
         });
+
+        if (currentEntry && (forceCenter || previousEntryId !== currentEntry.id)) {
+          this.centerActiveTocEntry(currentEntry, !previousEntryId);
+        }
+      },
+
+      centerActiveTocEntry(entry, immediate) {
+        if (!entry || !entry.link || !this.$refs.toc) {
+          return;
+        }
+
+        var container = this.$refs.toc.closest(".site-toc-card");
+        if (!container || container.getClientRects().length === 0 || container.clientHeight < 40) {
+          return;
+        }
+
+        var linkRect = entry.link.getBoundingClientRect();
+        var containerRect = container.getBoundingClientRect();
+        var maxScrollTop = container.scrollHeight - container.clientHeight;
+
+        if (maxScrollTop <= 0) {
+          return;
+        }
+
+        var delta = linkRect.top - containerRect.top - container.clientHeight / 2 + linkRect.height / 2;
+        var nextScrollTop = Math.max(0, Math.min(maxScrollTop, container.scrollTop + delta));
+
+        if (Math.abs(nextScrollTop - container.scrollTop) < 10) {
+          return;
+        }
+
+        container.scrollTo({
+          top: nextScrollTop,
+          behavior:
+            immediate || window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        });
+      },
+
+      syncTocFooterClearance() {
+        var tocPanel = document.getElementById("site-toc");
+        if (!tocPanel) {
+          return;
+        }
+
+        tocPanel.style.setProperty("--toc-footer-shift", "0px");
+
+        if (!this.activePage || !this.activePage.showToc || window.innerWidth < 1100) {
+          return;
+        }
+
+        var footer = document.querySelector(".site-footer");
+        if (!footer) {
+          return;
+        }
+
+        var footerRect = footer.getBoundingClientRect();
+        var intrusion = Math.max(0, window.innerHeight - footerRect.top + 20);
+        var maxShift = Math.max(0, window.innerHeight - 220);
+        var nextShift = Math.min(intrusion, maxShift);
+
+        tocPanel.style.setProperty("--toc-footer-shift", nextShift + "px");
       },
 
       refreshSectionBindings() {
