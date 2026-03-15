@@ -1007,6 +1007,8 @@ body::before {
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type h1 {
   max-width: none;
   margin-bottom: 1.25rem;
+  font-family: var(--font-body);
+  font-weight: 600;
   font-size: clamp(2.45rem, 4.2vw, 3.7rem);
   letter-spacing: -0.03em;
   line-height: 0.95;
