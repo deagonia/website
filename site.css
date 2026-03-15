@@ -1018,7 +1018,7 @@ body::before {
 .site-shell[data-page="handbook"] .site-body h2,
 .site-shell[data-page="handbook"] .site-body h3,
 .site-shell[data-page="handbook"] .site-body h4 {
-  margin: 0 0 0.95rem;
+  margin: 0;
 }
 
 .site-shell[data-page="handbook"] .site-body h1,
@@ -1029,18 +1029,36 @@ body::before {
 }
 
 .site-shell[data-page="handbook"] .site-body h2 {
+  margin-top: 3.15rem;
+  margin-bottom: 1.1rem;
   font-size: clamp(1.92rem, 2.3vw, 2.5rem);
   line-height: 1;
 }
 
 .site-shell[data-page="handbook"] .site-body h3 {
+  margin-top: 2.35rem;
+  margin-bottom: 0.82rem;
   font-size: clamp(1.42rem, 1.4vw, 1.72rem);
   line-height: 1.08;
 }
 
 .site-shell[data-page="handbook"] .site-body h4 {
+  margin-top: 1.65rem;
+  margin-bottom: 0.62rem;
   font-size: 0.84rem;
   letter-spacing: 0.1em;
+}
+
+.site-shell[data-page="handbook"] .site-body h2 + p,
+.site-shell[data-page="handbook"] .site-body h2 + ul,
+.site-shell[data-page="handbook"] .site-body h2 + ol,
+.site-shell[data-page="handbook"] .site-body h3 + p,
+.site-shell[data-page="handbook"] .site-body h3 + ul,
+.site-shell[data-page="handbook"] .site-body h3 + ol,
+.site-shell[data-page="handbook"] .site-body h4 + p,
+.site-shell[data-page="handbook"] .site-body h4 + ul,
+.site-shell[data-page="handbook"] .site-body h4 + ol {
+  margin-top: 0;
 }
 
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type blockquote {
