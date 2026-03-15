@@ -180,10 +180,11 @@ body::before {
   color: var(--color-text-strong);
   text-decoration: none;
   font-family: var(--font-brand);
-  font-size: 1.08rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: none;
+  font-size: 1.14rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 0.92;
+  text-transform: uppercase;
 }
 
 .site-nav-wrap {
@@ -981,8 +982,8 @@ body::before {
   }
 
   .site-brand {
-    font-size: 0.86rem;
-    letter-spacing: 0.18em;
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
   }
 
   .site-nav-wrap {
