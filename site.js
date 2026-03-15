@@ -39,8 +39,8 @@ function normalizePathname(value) {
   return normalized;
 }
 
-document.addEventListener("alpine:init", function () {
-  Alpine.data("deagoniaWebsite", function (config) {
+function registerDeagoniaWebsite(AlpineInstance) {
+  AlpineInstance.data("deagoniaWebsite", function (config) {
     return {
       config: config || { initialPage: "landing", assetVersion: "0.0.1", pageMap: {} },
       menuOpen: false,
@@ -321,4 +321,12 @@ document.addEventListener("alpine:init", function () {
       },
     };
   });
-});
+}
+
+if (window.Alpine) {
+  registerDeagoniaWebsite(window.Alpine);
+} else {
+  document.addEventListener("alpine:init", function () {
+    registerDeagoniaWebsite(window.Alpine);
+  });
+}
