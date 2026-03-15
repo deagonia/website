@@ -470,7 +470,7 @@ body::before {
 .site-body a.site-cta--secondary,
 .site-body a.site-cta--secondary:hover,
 .site-body a.site-cta--secondary:focus-visible {
-  color: var(--color-text-strong);
+  color: var(--color-night);
 }
 
 .site-cta-icon {
