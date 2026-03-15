@@ -1108,7 +1108,8 @@ body::before {
 
   .site-shell[data-page="landing"] .site-body > section.level1:first-of-type h1 {
     margin-bottom: 0.75rem;
-    font-size: calc(2.15rem + 4.2dvw);
+    font-size: calc(2.15rem + 8dvw);
+    letter-spacing: 0.03em;
   }
 
   .site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote {
