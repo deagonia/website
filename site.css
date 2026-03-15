@@ -310,8 +310,8 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
-  padding: 18px 22px;
+  gap: 1.5em;
+  padding: 0.6em 1.2em;
   border: 1px solid var(--color-line-A10);
   border-radius: 24px;
   background: rgba(12, 17, 19, 0.78);
@@ -1386,8 +1386,8 @@ body::before {
   }
 
   .site-footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
   }
 
   .site-footer-links {
@@ -1396,6 +1396,10 @@ body::before {
 }
 
 @media (max-width: 720px) {
+  .hide-on-mobile {
+    display: none;
+  }
+
   .site-shell {
     --page-gutter: 1em;
     --landing-hero-height: 100svh;
@@ -1543,8 +1547,8 @@ body::before {
   }
 
   .site-footer-inner {
-    padding: 16px;
-    border-radius: 20px;
+    padding: 1em;
+    border-radius: 1.5em;
   }
 
   .site-footer-copy {
