@@ -1019,6 +1019,13 @@ body::before {
   margin: 0 0 0.95rem;
 }
 
+.site-shell[data-page="handbook"] .site-body h1,
+.site-shell[data-page="handbook"] .site-body h2,
+.site-shell[data-page="handbook"] .site-body h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
 .site-shell[data-page="handbook"] .site-body h2 {
   font-size: clamp(1.92rem, 2.3vw, 2.5rem);
   line-height: 1;
@@ -1270,7 +1277,10 @@ body::before {
 .site-shell[data-page="community"] .site-body > section.level1:first-of-type h1 {
   max-width: 9ch;
   margin-bottom: 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
   font-size: clamp(3rem, 5.2vw, 4.9rem);
+  letter-spacing: -0.03em;
   line-height: 0.92;
 }
 
