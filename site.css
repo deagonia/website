@@ -454,6 +454,46 @@ body::before {
   color: var(--color-text-muted);
 }
 
+.site-discord-card {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid var(--color-line-strong-A20);
+  border-radius: var(--radius-sm);
+  background:
+    radial-gradient(circle at top right, var(--color-accent-glow-A08), var(--color-transparent) 42%),
+    linear-gradient(180deg, var(--color-accent-A12), var(--color-transparent));
+}
+
+.site-discord-copy {
+  margin: 0 0 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.site-discord-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-glow));
+  color: var(--color-text-on-accent);
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 12px 24px var(--color-black-A28);
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+
+.site-discord-cta:hover,
+.site-discord-cta:focus-visible {
+  transform: translateY(-1px);
+  filter: saturate(1.06);
+  box-shadow: 0 16px 30px var(--color-black-A28);
+}
+
 #TOC ul {
   list-style: none;
   padding: 0;
