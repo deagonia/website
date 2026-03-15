@@ -1006,7 +1006,7 @@ body::before {
 
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type h1 {
   max-width: none;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: clamp(2.45rem, 4.2vw, 3.7rem);
@@ -1029,22 +1029,22 @@ body::before {
 }
 
 .site-shell[data-page="handbook"] .site-body h2 {
-  margin-top: 3.15rem;
-  margin-bottom: 1.1rem;
+  margin-top: 3.65rem;
+  margin-bottom: 1.35rem;
   font-size: clamp(1.92rem, 2.3vw, 2.5rem);
   line-height: 1;
 }
 
 .site-shell[data-page="handbook"] .site-body h3 {
-  margin-top: 2.35rem;
-  margin-bottom: 0.82rem;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
   font-size: clamp(1.42rem, 1.4vw, 1.72rem);
   line-height: 1.08;
 }
 
 .site-shell[data-page="handbook"] .site-body h4 {
-  margin-top: 1.65rem;
-  margin-bottom: 0.62rem;
+  margin-top: 1.95rem;
+  margin-bottom: 0.78rem;
   font-size: 0.84rem;
   letter-spacing: 0.1em;
 }
