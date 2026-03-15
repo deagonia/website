@@ -891,6 +891,47 @@ body::before {
   width: min(calc(100% - (var(--page-gutter) * 2)), 1080px);
 }
 
+.site-shell[data-page="handbook"] .site-body {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.site-shell[data-page="handbook"] .site-body > section.level1:first-of-type {
+  max-width: 72ch;
+  margin: 0 auto;
+  padding: clamp(18px, 3vw, 28px) 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.site-shell[data-page="handbook"] .site-body > section.level1:first-of-type p,
+.site-shell[data-page="handbook"] .site-body > section.level1:first-of-type li,
+.site-shell[data-page="handbook"] .site-body > section.level1:first-of-type blockquote,
+.site-shell[data-page="handbook"] .site-body p,
+.site-shell[data-page="handbook"] .site-body li {
+  color: var(--color-text);
+}
+
+.site-shell[data-page="handbook"] .site-body > section.level1:first-of-type h1 {
+  max-width: none;
+  margin-bottom: 1rem;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  letter-spacing: -0.03em;
+}
+
+.site-shell[data-page="handbook"] .site-body blockquote {
+  border-left-color: var(--color-line-warm);
+}
+
+.site-shell[data-page="handbook"] .site-body section.level2 + section.level2 {
+  padding-top: 0;
+  border-top: 0;
+}
+
 .site-shell[data-page="landing"] .site-body,
 .site-shell[data-page="community"] .site-body {
   padding: 0;
