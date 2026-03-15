@@ -1026,28 +1026,35 @@ body::before {
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type blockquote {
   max-width: none;
   margin: 1.45rem 0 2rem;
-  padding: 1rem 1.2rem 1rem 1.1rem;
-  border-left: 3px solid var(--color-line-warm);
-  border-radius: 0 18px 18px 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-line-A10);
+  border-radius: 18px;
   background: var(--color-white-A03);
-  box-shadow: inset 0 0 0 1px var(--color-line-A10);
+  box-shadow: none;
   color: var(--color-text-highlight);
+  font-size: 0.9em;
 }
 
 .site-shell[data-page="handbook"] .site-body blockquote {
   margin: 1.45rem 0 2rem;
-  padding: 1rem 1.2rem 1rem 1.1rem;
-  border-left-width: 3px;
-  border-left-style: solid;
-  border-left-color: var(--color-line-warm);
-  border-radius: 0 18px 18px 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-line-A10);
+  border-radius: 18px;
   background: var(--color-white-A03);
-  box-shadow: inset 0 0 0 1px var(--color-line-A10);
+  box-shadow: none;
   color: var(--color-text-highlight);
+  font-size: 0.9em;
 }
 
 .site-shell[data-page="handbook"] .site-body blockquote > :last-child {
   margin-bottom: 0;
+}
+
+.site-shell[data-page="handbook"] .site-body blockquote p,
+.site-shell[data-page="handbook"] .site-body blockquote li {
+  font-size: 0.9em;
+  line-height: 1.68;
+  color: var(--color-text-muted);
 }
 
 .site-shell[data-page="handbook"] .site-body section.level2 + section.level2 {
