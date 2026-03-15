@@ -302,7 +302,7 @@ body::before {
   width: min(calc(100% - (var(--page-gutter) * 2)), 1560px);
   position: relative;
   z-index: 4;
-  margin: 16px auto 0;
+  margin: 1em auto 0;
   padding-bottom: 0;
 }
 
@@ -1267,15 +1267,23 @@ body::before {
   padding-inline: clamp(10px, 2vw, 22px);
 }
 
+.site-shell[data-page="community"] .site-body > section.level1:first-of-type h1 {
+  max-width: 9ch;
+  margin-bottom: 1rem;
+  font-size: clamp(3rem, 5.2vw, 4.9rem);
+  line-height: 0.92;
+}
+
 .site-shell[data-page="community"] .site-body > section.level1:first-of-type blockquote {
-  max-width: 46ch;
-  margin-left: auto;
+  max-width: 40ch;
+  margin-left: 0;
   margin-right: auto;
+  margin-bottom: 3.4rem;
 }
 
 .site-shell[data-page="community"] .site-entry-grid {
   max-width: 920px;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem;
   gap: 22px;
 }
 
@@ -1301,8 +1309,26 @@ body::before {
 
 .site-shell[data-page="community"] .site-body section.level2 {
   max-width: 72ch;
+  margin-top: 0;
   margin-left: auto;
   margin-right: auto;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--color-line-A10);
+  border-radius: 28px;
+  background: rgba(12, 17, 19, 0.72);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+}
+
+.site-shell[data-page="community"] .site-body section.level2 h2 {
+  margin-bottom: 0.9rem;
+  font-size: clamp(1.9rem, 2.8vw, 2.55rem);
+}
+
+.site-shell[data-page="community"] .site-body section.level2 + section.level2 {
+  margin-top: 18px;
+  padding-top: clamp(20px, 3vw, 30px);
+  border-top: 0;
 }
 
 @media (min-width: 1100px) {
@@ -1371,9 +1397,9 @@ body::before {
 
 @media (max-width: 720px) {
   .site-shell {
-    --page-gutter: 10px;
+    --page-gutter: 1em;
     --landing-hero-height: 100svh;
-    padding-bottom: 28px;
+    padding-bottom: 2em;
   }
 
   .site-hero-backdrop {
@@ -1513,7 +1539,7 @@ body::before {
   }
 
   .site-footer {
-    margin-top: 14px;
+    margin-top: 6em;
   }
 
   .site-footer-inner {
@@ -1570,6 +1596,11 @@ body::before {
   .site-shell[data-page="community"] .site-entry-card .site-cta {
     width: 100%;
     min-width: 0;
+  }
+
+  .site-shell[data-page="community"] .site-body section.level2 {
+    padding: clamp(22px, 2.6vw, 30px);
+    border-radius: 28px;
   }
 
   .site-landing-kicker {
