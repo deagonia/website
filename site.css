@@ -94,6 +94,10 @@
   box-sizing: border-box;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -162,16 +166,22 @@ body::before {
   text-transform: none;
 }
 
+.site-nav-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .site-nav {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
   gap: 8px;
 }
 
 .site-nav a,
-.site-nav-toggle {
+.site-nav-toggle,
+.site-menu-toggle {
   appearance: none;
   display: inline-flex;
   align-items: center;
@@ -212,7 +222,9 @@ body::before {
 .site-nav a:hover,
 .site-nav a:focus-visible,
 .site-nav-toggle:hover,
-.site-nav-toggle:focus-visible {
+.site-nav-toggle:focus-visible,
+.site-menu-toggle:hover,
+.site-menu-toggle:focus-visible {
   transform: translateY(-1px);
   background: var(--color-white-A12);
 }
@@ -255,6 +267,12 @@ body::before {
     radial-gradient(circle at top right, var(--color-accent-A12), var(--color-transparent) 20%),
     linear-gradient(180deg, var(--color-panel-top-A98), var(--color-panel-bottom-A96));
   box-shadow: var(--shadow-strong);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.site-body[data-loading="true"] {
+  opacity: 0.56;
+  transform: translateY(8px);
 }
 
 .site-landing-art {
@@ -451,8 +469,43 @@ body::before {
 }
 
 .site-action-row p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
   margin: 0;
   padding: 0;
+}
+
+.site-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+.site-cta:hover,
+.site-cta:focus-visible {
+  transform: translateY(-1px);
+}
+
+.site-cta--primary {
+  background: linear-gradient(135deg, var(--color-accent-deep), var(--color-accent));
+  color: var(--color-text-on-accent);
+  box-shadow: 0 14px 28px var(--color-black-A28);
+}
+
+.site-cta--secondary {
+  border: 1px solid var(--color-line-A12);
+  background: var(--color-white-A06);
+  color: var(--color-text-strong);
 }
 
 .site-body blockquote {
@@ -665,6 +718,12 @@ body::before {
   }
 }
 
+@media (min-width: 721px) {
+  .site-menu-toggle {
+    display: none;
+  }
+}
+
 @media (max-width: 1099px) {
   .site-landing-art {
     width: min(44vw, 320px);
@@ -712,18 +771,62 @@ body::before {
     letter-spacing: 0.18em;
   }
 
-  .site-nav {
+  .site-nav-wrap {
     gap: 6px;
-    flex-wrap: nowrap;
   }
 
-  .site-nav a,
-  .site-nav-toggle {
+  .site-menu-toggle {
     width: 42px;
     height: 42px;
     padding: 0;
     border-radius: 14px;
     font-size: 0;
+  }
+
+  .site-menu-toggle .site-nav-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: min(260px, calc(100vw - 24px));
+    padding: 10px;
+    border: 1px solid var(--color-line-A10);
+    border-radius: 18px;
+    background: var(--color-night-A92);
+    box-shadow: var(--shadow-strong);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 160ms ease, transform 160ms ease;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .site-nav[data-open="true"] {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .site-nav a,
+  .site-nav-toggle {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 14px;
+    border-radius: 14px;
+    font-size: 0.95rem;
   }
 
   .site-nav-icon {
@@ -733,13 +836,13 @@ body::before {
   }
 
   .site-nav-label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
+    position: static;
+    width: auto;
+    height: auto;
     padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    margin: 0;
+    overflow: visible;
+    clip: auto;
     white-space: nowrap;
     border: 0;
   }
