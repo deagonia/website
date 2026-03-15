@@ -866,23 +866,30 @@ body::before {
 }
 
 .site-shell[data-page="landing"] .site-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(13, 18, 20, 0.03) 0%,
-      rgba(13, 18, 20, 0.14) 46%,
-      rgba(13, 18, 20, 0.28) 100%
-    );
+  display: none;
 }
 
 @media (min-width: 1281px) {
   :root {
     --main-font-size: 1.08rem;
+  }
+}
+
+@media (min-width: 721px) {
+  .site-shell[data-page="landing"] .site-hero-backdrop {
+    height: calc(var(--landing-hero-height) + clamp(140px, 16vw, 240px));
+  }
+
+  .site-shell[data-page="landing"] .site-hero-backdrop-scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(13, 18, 20, 0.1) 0%,
+        rgba(13, 18, 20, 0.18) 30%,
+        rgba(13, 18, 20, 0.3) 56%,
+        rgba(13, 18, 20, 0.48) 76%,
+        rgba(13, 18, 20, 0.66) 100%
+      );
   }
 }
 
