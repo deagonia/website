@@ -301,54 +301,49 @@ body::before {
 }
 
 .site-footer-copy {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.7rem;
   margin: 0;
   color: var(--color-text-muted);
   font-family: var(--font-ui);
   font-size: 0.9rem;
-  letter-spacing: 0.02em;
-}
-
-.site-footer-copy strong {
-  color: var(--color-text-strong);
-  font-family: var(--font-brand);
-  font-size: 1rem;
   letter-spacing: 0.03em;
-  text-transform: uppercase;
+  line-height: 1.5;
 }
 
-.site-footer-nav {
+.site-footer-links {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  align-items: center;
   gap: 8px;
 }
 
-.site-footer-nav a {
+.site-footer-icon-link {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
-  min-height: 38px;
-  padding: 0 14px;
+  width: 40px;
+  height: 40px;
   border: 1px solid var(--color-line-A12);
   border-radius: 999px;
   color: var(--color-text-muted);
+  background: var(--color-white-A03);
   text-decoration: none;
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   transition: color 140ms ease, border-color 140ms ease, background 140ms ease, transform 140ms ease;
 }
 
-.site-footer-nav a:hover,
-.site-footer-nav a:focus-visible {
+.site-footer-icon-link svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.85;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.site-footer-icon-link:hover,
+.site-footer-icon-link:focus-visible {
   color: var(--color-text-strong);
   border-color: var(--color-line-strong-A20);
-  background: var(--color-white-A03);
+  background: var(--color-white-A06);
   transform: translateY(-1px);
 }
 
@@ -1035,7 +1030,7 @@ body::before {
     align-items: flex-start;
   }
 
-  .site-footer-nav {
+  .site-footer-links {
     justify-content: flex-start;
   }
 }
@@ -1194,24 +1189,18 @@ body::before {
   }
 
   .site-footer-copy {
-    gap: 0.45rem;
     font-size: 0.78rem;
     line-height: 1.55;
   }
 
-  .site-footer-copy strong {
-    font-size: 0.92rem;
-  }
-
-  .site-footer-nav {
+  .site-footer-links {
     width: 100%;
     gap: 6px;
   }
 
-  .site-footer-nav a {
-    min-height: 36px;
-    padding: 0 12px;
-    font-size: 0.72rem;
+  .site-footer-icon-link {
+    width: 38px;
+    height: 38px;
   }
 
   .site-entry-icon {
