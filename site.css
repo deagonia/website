@@ -846,7 +846,7 @@ body::before {
 }
 
 .site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote {
-  margin-inline: auto;
+  margin: 4em auto;
 }
 
 .site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote p {
@@ -1063,7 +1063,7 @@ body::before {
 
   .site-body p,
   .site-body li {
-    font-size: 0.98rem;
+    font-size: var(--main-font-size);
     line-height: 1.6;
   }
 
@@ -1135,10 +1135,6 @@ body::before {
     padding-bottom: 18px;
   }
 
-  .site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote {
-    margin-bottom: 4rem;
-  }
-
   .site-shell[data-page="landing"] .site-body > section.level1:first-of-type {
     padding-top: 18px;
     padding-bottom: 8px;
@@ -1151,6 +1147,6 @@ body::before {
   }
 
   .site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote {
-    margin-bottom: 2.4rem;
+    margin: 4em auto;
   }
 }
