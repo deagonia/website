@@ -12,30 +12,30 @@
   --color-white: #ffffff;
   --color-black: #000000;
   --color-shadow-ink: #020301;
-  --color-night: #07110f;
-  --color-ember: #b28758;
-  --color-violet-haze: #173230;
-  --color-panel-top: #0d1514;
-  --color-panel-bottom: #09100f;
-  --color-line-warm: #d1c4aa;
-  --color-text-highlight: #ddd5c4;
-  --color-ivory: #f3ede1;
-  --color-code-bg: #09100f;
+  --color-night: #0b1012;
+  --color-ember: #c28d58;
+  --color-violet-haze: #1b2b2e;
+  --color-panel-top: #141b1e;
+  --color-panel-bottom: #141b1e;
+  --color-line-warm: #d6c7af;
+  --color-text-highlight: #e2d7c5;
+  --color-ivory: #f4efe6;
+  --color-code-bg: #101618;
   --color-code-text: #f0eadc;
 
-  --color-bg-canvas: #07110f;
-  --color-bg-elevated: #0b1514;
-  --color-bg-deep: #10201d;
-  --color-surface: #0f1817;
-  --color-surface-A90: rgba(15, 24, 23, 0.9);
-  --color-surface-strong: #14211f;
-  --color-surface-strong-A94: rgba(20, 33, 31, 0.94);
-  --color-surface-soft: #1b2a27;
-  --color-surface-soft-A90: rgba(27, 42, 39, 0.9);
-  --color-hero-start: #11211f;
-  --color-hero-start-A96: rgba(17, 33, 31, 0.96);
-  --color-hero-end: #173230;
-  --color-hero-end-A94: rgba(23, 50, 48, 0.94);
+  --color-bg-canvas: #0d1214;
+  --color-bg-elevated: #12181b;
+  --color-bg-deep: #12181b;
+  --color-surface: #151c1f;
+  --color-surface-A90: rgba(21, 28, 31, 0.9);
+  --color-surface-strong: #1a2326;
+  --color-surface-strong-A94: rgba(26, 35, 38, 0.94);
+  --color-surface-soft: #202a2e;
+  --color-surface-soft-A90: rgba(32, 42, 46, 0.9);
+  --color-hero-start: #151c1f;
+  --color-hero-start-A96: rgba(21, 28, 31, 0.96);
+  --color-hero-end: #1a2326;
+  --color-hero-end-A94: rgba(26, 35, 38, 0.94);
 
   --color-text: #e7e2d7;
   --color-text-strong: #f7f3eb;
@@ -46,38 +46,38 @@
   --color-text-A80: rgba(231, 226, 215, 0.8);
   --color-text-A58: rgba(231, 226, 215, 0.58);
 
-  --color-line: #b7b8a7;
-  --color-line-A10: rgba(183, 184, 167, 0.1);
-  --color-line-A12: rgba(183, 184, 167, 0.12);
-  --color-line-strong: #d7d1c2;
-  --color-line-strong-A20: rgba(215, 209, 194, 0.2);
-  --color-line-warm-A08: rgba(209, 196, 170, 0.08);
+  --color-line: #31393d;
+  --color-line-A10: rgba(49, 57, 61, 0.1);
+  --color-line-A12: rgba(49, 57, 61, 0.12);
+  --color-line-strong: #5a686d;
+  --color-line-strong-A20: rgba(90, 104, 109, 0.2);
+  --color-line-warm-A08: rgba(214, 199, 175, 0.08);
 
-  --color-accent: #4e9ea3;
-  --color-accent-glow: #8ed4d2;
-  --color-accent-deep: #2b7379;
-  --color-accent-A12: rgba(78, 158, 163, 0.12);
-  --color-accent-A18: rgba(78, 158, 163, 0.18);
-  --color-accent-glow-A55: rgba(142, 212, 210, 0.55);
-  --color-accent-glow-A42: rgba(142, 212, 210, 0.42);
-  --color-accent-glow-A16: rgba(142, 212, 210, 0.16);
-  --color-accent-glow-A08: rgba(142, 212, 210, 0.08);
-  --color-accent-glow-A07: rgba(142, 212, 210, 0.07);
-  --color-ember-A18: rgba(178, 135, 88, 0.18);
-  --color-violet-haze-A12: rgba(23, 50, 48, 0.12);
+  --color-accent: #d4a06b;
+  --color-accent-glow: #8fc5c8;
+  --color-accent-deep: #b8844e;
+  --color-accent-A12: rgba(212, 160, 107, 0.12);
+  --color-accent-A18: rgba(212, 160, 107, 0.18);
+  --color-accent-glow-A55: rgba(143, 197, 200, 0.55);
+  --color-accent-glow-A42: rgba(143, 197, 200, 0.42);
+  --color-accent-glow-A16: rgba(143, 197, 200, 0.16);
+  --color-accent-glow-A08: rgba(143, 197, 200, 0.08);
+  --color-accent-glow-A07: rgba(143, 197, 200, 0.07);
+  --color-ember-A18: rgba(194, 141, 88, 0.18);
+  --color-violet-haze-A12: rgba(27, 43, 46, 0.12);
 
   --color-white-A12: rgba(255, 255, 255, 0.12);
   --color-white-A06: rgba(255, 255, 255, 0.06);
   --color-white-A05: rgba(255, 255, 255, 0.05);
   --color-white-A03: rgba(255, 255, 255, 0.03);
   --color-white-A015: rgba(255, 255, 255, 0.015);
-  --color-night-A92: rgba(7, 17, 15, 0.92);
-  --color-night-A78: rgba(7, 17, 15, 0.78);
-  --color-panel-top-A98: rgba(13, 21, 20, 0.98);
-  --color-panel-bottom-A96: rgba(9, 16, 15, 0.96);
+  --color-night-A92: rgba(11, 16, 18, 0.92);
+  --color-night-A78: rgba(11, 16, 18, 0.78);
+  --color-panel-top-A98: rgba(20, 27, 30, 0.98);
+  --color-panel-bottom-A96: rgba(20, 27, 30, 0.96);
   --color-ivory-A05: rgba(243, 237, 225, 0.05);
   --color-ivory-A02: rgba(243, 237, 225, 0.02);
-  --color-code-bg-A82: rgba(9, 16, 15, 0.82);
+  --color-code-bg-A82: rgba(16, 22, 24, 0.82);
   --color-shadow-ink-A34: rgba(3, 2, 5, 0.34);
   --color-black-A42: rgba(0, 0, 0, 0.42);
   --color-black-A28: rgba(0, 0, 0, 0.28);
@@ -107,28 +107,11 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   font-family: var(--font-body);
-  background:
-    radial-gradient(circle at 10% 14%, var(--color-accent-glow-A16), var(--color-transparent) 24%),
-    radial-gradient(circle at 88% 12%, var(--color-accent-A18), var(--color-transparent) 22%),
-    radial-gradient(circle at 70% 100%, var(--color-violet-haze-A12), var(--color-transparent) 28%),
-    linear-gradient(180deg, var(--color-bg-deep) 0%, var(--color-bg-canvas) 100%);
+  background: var(--color-bg-canvas);
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(var(--color-white-A03), var(--color-transparent)),
-    repeating-linear-gradient(
-      135deg,
-      var(--color-white-A015) 0,
-      var(--color-white-A015) 2px,
-      var(--color-transparent) 2px,
-      var(--color-transparent) 22px
-    );
-  opacity: 0.28;
+  display: none;
 }
 
 .site-shell {
@@ -160,9 +143,7 @@ body::before {
 .site-hero-backdrop-scrim {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(7, 17, 15, 0.08) 0%, rgba(7, 17, 15, 0.26) 30%, rgba(7, 17, 15, 0.76) 68%, rgba(7, 17, 15, 0.96) 100%),
-    radial-gradient(circle at 14% 10%, var(--color-accent-glow-A16), var(--color-transparent) 28%);
+  background: rgba(13, 18, 20, 0.56);
 }
 
 .site-bar {
@@ -177,7 +158,7 @@ body::before {
   margin-bottom: 22px;
   border: 1px solid var(--color-line-A10);
   border-radius: 24px;
-  background: linear-gradient(180deg, rgba(8, 18, 16, 0.86), rgba(8, 16, 14, 0.72));
+  background: rgba(12, 17, 19, 0.88);
   backdrop-filter: blur(16px);
   box-shadow: var(--shadow-soft);
 }
@@ -258,8 +239,8 @@ body::before {
 .site-nav-link.is-active,
 .site-nav-link.is-active:hover,
 .site-nav-link.is-active:focus-visible {
-  background: linear-gradient(135deg, var(--color-accent-deep), var(--color-accent));
-  color: var(--color-text-on-accent);
+  background: var(--color-accent);
+  color: #19120d;
   box-shadow: 0 10px 24px var(--color-black-A28);
 }
 
@@ -272,7 +253,7 @@ body::before {
 }
 
 .site-nav-discord {
-  background: linear-gradient(135deg, var(--color-ember), var(--color-line-strong));
+  background: var(--color-accent-deep);
   color: var(--color-text-on-accent);
 }
 
@@ -297,9 +278,7 @@ body::before {
   padding: clamp(22px, 3vw, 34px);
   border: 1px solid var(--color-line-A10);
   border-radius: var(--radius-xl);
-  background:
-    radial-gradient(circle at top right, var(--color-accent-A12), var(--color-transparent) 20%),
-    linear-gradient(180deg, var(--color-panel-top-A98), var(--color-panel-bottom-A96));
+  background: var(--color-surface-A90);
   box-shadow: var(--shadow-strong);
   transition: opacity 180ms ease, transform 180ms ease;
 }
@@ -314,14 +293,9 @@ body::before {
   padding: clamp(28px, 6vw, 52px);
   border: 1px solid var(--color-line-warm-A08);
   border-radius: calc(var(--radius-xl) - 8px);
-  background:
-    radial-gradient(circle at top left, var(--color-accent-A18), var(--color-transparent) 28%),
-    radial-gradient(circle at bottom right, var(--color-accent-glow-A08), var(--color-transparent) 24%),
-    linear-gradient(140deg, var(--color-hero-start-A96), var(--color-hero-end-A94));
+  background: var(--color-surface-strong-A94);
   color: var(--color-text);
-  box-shadow:
-    inset 0 1px 0 var(--color-white-A05),
-    inset 0 -40px 120px var(--color-black-A18);
+  box-shadow: inset 0 1px 0 var(--color-white-A05);
 }
 
 .site-body > section.level1:first-of-type::after {
@@ -510,9 +484,7 @@ body::before {
   padding: clamp(18px, 3vw, 24px);
   border: 1px solid var(--color-line-A12);
   border-radius: 28px;
-  background:
-    radial-gradient(circle at top right, var(--color-accent-A12), var(--color-transparent) 38%),
-    linear-gradient(180deg, rgba(16, 27, 25, 0.96), rgba(10, 17, 16, 0.9));
+  background: var(--color-surface-A90);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
 }
 
@@ -554,14 +526,14 @@ body::before {
   padding: 0.1rem 0 0.1rem 1rem;
   border-left: 3px solid var(--color-accent-glow-A55);
   color: var(--color-text);
-  background: linear-gradient(90deg, var(--color-accent-glow-A07), var(--color-transparent) 72%);
+  background: transparent;
 }
 
 .site-body hr {
   height: 1px;
   border: 0;
   margin: 2rem 0;
-  background: linear-gradient(90deg, var(--color-transparent), var(--color-line-strong-A20), var(--color-transparent));
+  background: var(--color-line-A12);
 }
 
 .site-body table {
@@ -673,10 +645,7 @@ body::before {
   padding: 16px;
   border: 1px solid var(--color-line-strong-A20);
   border-radius: var(--radius-sm);
-  background:
-    radial-gradient(circle at top right, var(--color-accent-glow-A08), var(--color-transparent) 42%),
-    radial-gradient(circle at bottom left, var(--color-ember-A18), var(--color-transparent) 48%),
-    linear-gradient(180deg, var(--color-accent-A12), var(--color-transparent));
+  background: var(--color-surface-soft-A90);
 }
 
 .site-discord-copy {
@@ -692,8 +661,8 @@ body::before {
   min-height: 44px;
   padding: 0 16px;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--color-ember), var(--color-line-strong));
-  color: var(--color-text-on-accent);
+  background: var(--color-accent);
+  color: #19120d;
   text-decoration: none;
   font-family: var(--font-ui);
   font-weight: 700;
@@ -792,8 +761,7 @@ body::before {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(7, 17, 15, 0.02) 0%, rgba(7, 17, 15, 0.06) 18%, rgba(7, 17, 15, 0.26) 34%, rgba(7, 17, 15, 0.82) 68%, var(--color-bg-canvas) 100%);
+  background: rgba(13, 18, 20, 0.36);
 }
 
 .site-shell[data-page="landing"] .site-body section.level2,
@@ -802,9 +770,7 @@ body::before {
   padding: clamp(18px, 3vw, 28px);
   border: 1px solid var(--color-line-A12);
   border-radius: 28px;
-  background:
-    radial-gradient(circle at top right, var(--color-accent-A12), var(--color-transparent) 36%),
-    linear-gradient(180deg, rgba(14, 23, 22, 0.92), rgba(10, 17, 16, 0.82));
+  background: var(--color-surface-A90);
   box-shadow: 0 16px 42px rgba(0, 0, 0, 0.16);
   backdrop-filter: blur(14px);
 }
