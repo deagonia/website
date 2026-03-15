@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Webowa wersja podręcznika Deagonii z dynamicznie ładowanym spisem treści." />
   <title>Δεαγονία — Podręcznik</title>
-  <link rel="stylesheet" href="../site.css?v=0.0.34" />
+  <link rel="stylesheet" href="../site.css?v=0.0.36" />
   <script>
     window.DEAGONIA_WEBSITE_CONFIG = {
       initialPage: "handbook",
       siteTitle: "Δεαγονία",
-      assetVersion: "0.0.34",
+      assetVersion: "0.0.36",
       pageMap: {"landing":{"slug":"landing","path":"","menuMode":"pages","sections":[],"pageTitle":"Landing Deagonii","documentTitle":"Δεαγονία","description":"Krótki wstęp do Deagonii i wejście do podręcznika lub community.","showLandingArt":true,"showToc":false},"community":{"slug":"community","path":"community/","menuMode":"pages","sections":[],"pageTitle":"Community Deagonii","documentTitle":"Δεαγονία — Community","description":"Społeczność Deagonii i wejście na Discord projektu.","showLandingArt":false,"showToc":false},"handbook":{"slug":"handbook","path":"handbook/","menuMode":"toc","sections":[],"pageTitle":"Podręcznik Deagonii","documentTitle":"Δεαγονία — Podręcznik","description":"Webowa wersja podręcznika Deagonii z dynamicznie ładowanym spisem treści.","showLandingArt":false,"showToc":true}}
     };
   </script>
-  <script defer src="../site.js?v=0.0.34"></script>
+  <script defer src="../site.js?v=0.0.36"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.8/dist/cdn.min.js?v=3.15.8"></script>
 </head>
 <body class="website-shell">
@@ -26,7 +26,7 @@
       x-transition.opacity.duration.220ms
       aria-hidden="true"
     >
-      <img class="site-hero-backdrop-image" src="../cover.png?v=0.0.34" alt="" loading="eager" decoding="async" />
+      <img class="site-hero-backdrop-image" src="../cover.png?v=0.0.36" alt="" loading="eager" decoding="async" />
       <div class="site-hero-backdrop-scrim"></div>
     </div>
 
@@ -120,230 +120,84 @@
       <article class="site-body" x-ref="body" x-bind:data-loading="isLoading ? 'true' : 'false'"><section id="website-handbook" class="level1">
   <h1>Podręcznik Deagonii</h1>
   <blockquote>
-  <p>Ta wersja webowa nie próbuje kopiować PDF-a jeden do jednego. Zbiera rozdziały, które najczyściej pokazują rytm gry, koszt decyzji i ton świata.</p>
+  <p>To jeszcze nie jest pełny podręcznik. Na stronie pokazujemy tylko dwa pierwsze fragmenty: Manifest i wejście do świata Echo.</p>
   </blockquote>
-  <p>Tutaj pojawia się pełny spis treści strony. Dzięki temu możesz czytać Deagonię jak długi dokument webowy, z prostą nawigacją po sekcjach i rozdziałach.</p>
-  <p>Jeśli wolisz zacząć od krótkiego wejścia do świata, wróć na <a href="../">stronę główną</a>. Jeśli chcesz wejść do rozmowy o zmianach i kolejnych iteracjach, zajrzyj do <a href="../community/">Community</a>.</p>
+  <p>To jest wczesna, publiczna obecność projektu, nie gotowa wersja do gry. Reszta materiału dalej dojrzewa poza stroną.</p>
+  <p>Jeśli wolisz zacząć od krótkiego wejścia, wróć na <a href="../">stronę główną</a>. Jeśli chcesz śledzić rozwój projektu i wejść później w playtest, zajrzyj do <a href="../community/">Społeczności</a>.</p>
   <section id="jak-czytać-wersję-webową" class="level2">
   <h2>Jak czytać wersję webową</h2>
-  <p>To jest selekcja. Wchodzą tu te rozdziały, które dobrze działają w przeglądarce i zachowują sens bez PDF-owego składu. Na start najważniejsze są dwa porządki: jak prowadzić grę przy stole i jaki świat mówi językiem Deagonii.</p>
+  <p>Na razie to tylko sygnał tonu i kierunku. Manifest pokazuje, o czym jest Deagonia jako gra, a wprowadzenie do Echo ustawia świat i jego język.</p>
   </section>
   <section id="website-book" class="level2">
   <h2>Webowy podręcznik</h2>
-  <section id="alchemy-quickstart" class="level3">
-  <h3>Alchemy: Quickstart</h3>
-  <p>Ten rozdział ma jeden cel: <strong>dać procedury, dzięki którym da się poprowadzić sesję</strong>. To nie jest pełny system. To jest silnik w wersji startowej.</p>
-  <p>Jeśli przy stole coś jest niejasne — wróć do procedur z tego rozdziału. One mają „zamykać pętle”.</p>
-  <p>Nazwy warstw (<code>Warstwa Bazowa</code>, <code>Warstwa Symboliczna</code>) są neutralne dla silnika. Setting może je nazwać po swojemu.</p>
-  <hr />
-  <section id="słownik-na-60-sekund-żeby-się-nie-gubić" class="level4">
-  <h4>Słownik na 60 sekund (żeby się nie gubić)</h4>
-  <ul>
-  <li><strong>Zasób</strong>: typ energii (np. <img class="site-emoji-symbol" src="../emojis/2600.png?v=0.0.34" alt="☀️" loading="lazy" decoding="async" /> Wola/Helios, <img class="site-emoji-symbol" src="../emojis/1f319.png?v=0.0.34" alt="🌙" loading="lazy" decoding="async" /> Czucie/Selene, <img class="site-emoji-symbol" src="../emojis/1f525.png?v=0.0.34" alt="🔥" loading="lazy" decoding="async" /> Zapał/Ares).</li>
-  <li><strong>Żeton</strong>: 1 jednostka zasobu, którą wydajesz.</li>
-  <li><strong>Karta zasobu</strong>: karta z parami czynności <code>Integracja/Kompulsja</code>; używana w Testach i Progach.</li>
-  <li><strong>Talia Drogi</strong>: twoje operacyjne „ciało postaci” przy stole (domyślnie 6 kart, bez statystyk).</li>
-  <li><strong>Scena progowa</strong>: scena, w której porażka jest <strong>śmiertelna / nieodwracalna / epicka</strong>.</li>
-  <li><strong>Wzywanie</strong>: zakryty zestaw pól czynności, który MG przygotowuje dla sceny progowej.</li>
-  <li><strong>Stopień</strong>: ile pól ma Wzywanie.</li>
-  <li><strong>Limit</strong>: ile kart drużyna może zagrać łącznie w tej scenie progowej.</li>
-  <li><strong>Nacisk</strong>: źródło presji sceny (<code>Osobowy</code> / <code>Społeczny</code> / <code>Transcendentny</code>).</li>
-  <li><strong>Napięcie</strong>: stan postaci (Ugruntowany / Drżący / Rozchwiany), który wpływa na oś Integracja/Kompulsja (strona Kompleksu).</li>
-  <li><strong>Trwała konsekwencja</strong>: ciężki skutek sceniczny, który zostaje z postacią.</li>
-  <li><strong>Ślad</strong>: słowo/obraz/zdanie zapisane po Progu; wraca z tobą do Warstwy Bazowej po domknięciu scen.</li>
-  <li><strong>Ruch Drogi</strong>: zasady dopisywania <code>SI/SK</code>, odczytu stopnia osi i Przemiany; zob. <a href="#alchemy-drogi-ruch-osi">Alchemy: Drogi Postaci</a>.</li>
-  <li><strong>DAR/ZEW</strong>: pakiet Przemiany Drogi; <code>DAR</code> wzmacnia sprawczość, <code>ZEW</code> zawęża decyzje.</li>
-  </ul>
-  <hr />
+  <section id="rulebook-manifest" class="level3">
+  <h3>Deagonia: Manifest</h3>
+  <p>Deagonia nie pyta, kto wygra. Pyta, kto zapłaci cenę decyzji i jaki Ślad zostanie po scenie.</p>
+  <p>To nie jest gra o przewadze. To jest gra o kierunku pod naciskiem.</p>
+  <section id="rdzeń" class="level4">
+  <h4>Rdzeń</h4>
+  <p>Silnik Alchemy nie symuluje szczęścia. Rozstrzyga, jak energia postaci przechodzi przez presję świata.</p>
+  <p>Pytanie przewodnie tej gry brzmi: <strong>co próbujesz ochronić i ile to kosztuje?</strong></p>
   </section>
-  <section id="co-jest-potrzebne-do-gry" class="level4">
-  <h4>Co jest potrzebne do gry</h4>
-  <ul>
-  <li>1 Prowadzący (MG)</li>
-  <li>2–5 graczy</li>
-  <li>kartka / notatnik dla MG (napięcia postaci, zużycie zasobów, trwałe konsekwencje, Ślady)</li>
-  <li><strong>żetony Zasobów Psyche</strong> (monety, kostki, karteczki — ważne, żeby dało się je fizycznie wydawać)</li>
-  <li><strong>karty zasobów</strong> (8 kart z parami czynności; zob. <a href="#assets-karty-zasobow">Alchemy: Karty Zasobów</a>)</li>
-  <li>krótka umowa stołu o <strong>pauzie bezpieczeństwa</strong> (jasna komenda stopu)</li>
-  </ul>
-  <hr />
+  <section id="echo-i-warstwa-pierwsza" class="level4">
+  <h4>Echo i Warstwa Pierwsza</h4>
+  <p>Echo ma logikę snu, ale nie jest chaosem bez reguł. Najpierw jest mitologiczna Grecja, potem przeciek Warstwy Pierwszej.</p>
+  <p>Relikty są rzadkie i tabuiczne. Nie budują codzienności. Budują stawkę.</p>
+  <p>W Deagonii działa zasada odwrócenia technologii: im coś było bardziej technologiczne w Warstwie Pierwszej, tym bardziej mityczne staje się w Echu.</p>
   </section>
-  <section id="talia-drogi-twoja-postać-bez-statystyk" class="level4">
-  <h4>Talia Drogi: twoja postać bez statystyk</h4>
-  <p>W Alchemy postać nie jest zbiorem atrybutów. Postać to to, czym grasz i co po tobie zostaje.</p>
-  <p>Rdzeń mechaniczny postaci to:</p>
+  <section id="rytm-sesji-progi-i-testy" class="level4">
+  <h4>Rytm sesji: Progi i Testy</h4>
+  <p>Sesję lub przygodę buduje się wokół Progów. Najczęściej oznacza to od jednego do trzech Progów na sesję, a między nimi Testy i sceny czystej fikcji.</p>
+  <p><strong>Test</strong> i <strong>Próg</strong> to dwa różne narzędzia. Próg nie jest trudniejszym Testem.</p>
   <ul>
-  <li><strong>Talia Drogi</strong> (domyślnie <code>6</code> kart): twoje dostępne gesty działania.</li>
-  <li><strong>Liczniki osi Drogi</strong>: <code>SI</code> (Ślady Integracji) i <code>SK</code> (Ślady Kompulsji).</li>
-  <li><strong>Napięcie</strong>: <code>Ugruntowany / Drżący / Rozchwiany</code> (wejście do osi w Progach).</li>
-  <li><strong>Ślady</strong>: zapis ceny scen, który wraca z tobą po domknięciu sesji.</li>
+  <li><strong>Test</strong>: stawka lokalna, ale realna; przesuwa scenę.</li>
+  <li><strong>Próg</strong>: stawka nieodwracalna lub śmiertelna; zmienia stan świata i postaci.</li>
   </ul>
-  <p>To jest całość „karty postaci” w sensie silnikowym. Nie ma statystyk, poziomów ani rzutów.</p>
-  <section id="jak-to-prowadzić-przy-stole-skrót-operacyjny" class="level5">
-  <h5>Jak to prowadzić przy stole (skrót operacyjny)</h5>
+  </section>
+  <section id="postać-i-zasoby-psyche" class="level4">
+  <h4>Postać i Zasoby Psyche</h4>
+  <p>Każdy gracz prowadzi postać, która ma własne Zasoby Psyche.</p>
+  <p>W scenach płacisz żetonami Zasobów Psyche, żeby działać. W Testach i Progach zagrywasz karty zasobów, by pokrywać pola i przechodzić przez stawkę.</p>
+  <p>Nie gracie o szczęście. Gracie o to, <strong>czym płacicie</strong> i <strong>co zostaje po koszcie</strong>.</p>
+  </section>
+  <section id="cień-i-stawka" class="level4">
+  <h4>Cień i stawka</h4>
+  <p>Cień nie jest potworem do pokonania. Cień jest napięciem do rozpoznania.</p>
+  <p>Cień może wejść do sceny na starcie albo ujawnić się dopiero w rozstrzygnięciu, zwłaszcza pod rosnącym Napięciem i po stronie Kompulsji.</p>
+  <p>Scena wysokiej stawki staje się Progiem wtedy, gdy porażka jest nieodwracalna lub śmiertelna. O tym decyduje stawka, nie sam motyw Cienia.</p>
+  <p>W praktyce sceny wysokiej stawki zwykle biegną tym torem: <strong>stawka -&gt; napięcie -&gt; decyzja -&gt; koszt -&gt; Test lub Próg -&gt; Ślad -&gt; (czasem) Integracja</strong>.</p>
+  </section>
+  <section id="oś-postaci-integracjakompulsja" class="level4">
+  <h4>Oś postaci: Integracja/Kompulsja</h4>
+  <p>Każda karta Zasobu Psyche ma parę czynności Integracja/Kompulsja. To nie podział na dobro i zło, tylko dwa tryby tego samego gestu.</p>
+  <p>To, która strona pary się uruchamia, wynika z przecięcia Nacisku sceny (Osobowy, Społeczny, Transcendentny) i Napięcia postaci (Ugruntowany, Drżący, Rozchwiany).</p>
+  </section>
+  <section id="co-zostaje-po-rozstrzygnięciu" class="level4">
+  <h4>Co zostaje po rozstrzygnięciu</h4>
+  <p>Po Progu zapisujesz Ślad: krótkie słowo, obraz albo zdanie ceny. Ślad ma pracować dalej w fikcji.</p>
+  <p>Ruch Drogi zapisujesz przez SI/SK zgodnie z Alchemy: Drogi Postaci. Na stopniu Przemiany aktywuje się pakiet DAR/ZEW aktywnej strony Drogi.</p>
+  <ul>
+  <li>DAR wzmacnia sprawczość postaci.</li>
+  <li>ZEW zawęża decyzje i wzmacnia przymus kierunku.</li>
+  </ul>
+  </section>
+  <section id="bezpieczeństwo" class="level4">
+  <h4>Bezpieczeństwo</h4>
+  <p>Pauza bezpieczeństwa jest twardą regułą gry, nie dodatkiem do klimatu. Jeśli ktoś mówi „pauza”, gra zatrzymuje się natychmiast. Bez negocjacji i bez presji tempa.</p>
+  </section>
+  <section id="manifest-w-praktyce" class="level4">
+  <h4>Manifest w praktyce</h4>
+  <p>Przed każdą sceną o wysokiej stawce ustalcie:</p>
   <ol type="1">
-  <li>W scenie wybierasz kartę/parę czynności i płacisz koszt żetonami Zasobów Psyche.</li>
-  <li>W Progu trafiona karta daje <code>Głos</code> i spala się; nietrafiona wraca na rękę.</li>
-  <li>W Teście zagrane karty idą na stos odrzuconych (nie spalają się).</li>
-  <li>Po rozstrzygnięciu dopisujesz ruch osi Drogi (<code>SI/SK</code>) według <a href="#alchemy-drogi-ruch-osi">Alchemy: Drogi Postaci</a>.</li>
-  <li>Gdy aktywny licznik wejdzie na stopień Przemiany (<code>6-8</code>), aktywuje się pakiet <code>DAR/ZEW</code> tej strony Drogi.</li>
+  <li>Co dokładnie jest stawką i co stanie się przy porażce.</li>
+  <li>Czy to zwykłe działanie, Test, czy Próg.</li>
+  <li>Jakie Zasoby Psyche postaci mogą wejść do tej sceny.</li>
+  <li>Jaki koszt jest realny nawet przy sukcesie.</li>
+  <li>Jaki Ślad zapiszecie po rozstrzygnięciu.</li>
   </ol>
-  <blockquote>
-  <p>Jeśli ktoś pyta „gdzie są statystyki?”: odpowiedź brzmi „w decyzjach, kosztach i Śladach”.</p>
-  </blockquote>
-  <hr />
-  </section>
-  </section>
-  <section id="minimalny-rytm-sesji" class="level4">
-  <h4>Minimalny rytm sesji</h4>
-  <section id="faza-a-warstwa-bazowa-wejście" class="level5">
-  <h5>Faza A — Warstwa Bazowa (wejście)</h5>
-  <ol type="1">
-  <li>Ustalasz <em>gdzie jesteście i dlaczego dziś wchodzicie do Warstwy Symbolicznej</em>.</li>
-  <li>Każdy gracz mówi <strong>jedno zdanie o swoim stanie</strong> (ciało / napięcie / myśl).</li>
-  <li>MG przypomina zasadę: każdy może w dowolnym momencie ogłosić <strong>pauzę bezpieczeństwa</strong>.</li>
-  </ol>
-  </section>
-  <section id="faza-b-przejście-wejście-do-warstwy-symbolicznej" class="level5">
-  <h5>Faza B — Przejście (wejście do Warstwy Symbolicznej)</h5>
-  <ol type="1">
-  <li>MG zadaje jedno pytanie do grupy:
-  <ul>
-  <li>„Co dziś niesiecie ze sobą do Warstwy Symbolicznej?”</li>
-  </ul></li>
-  <li>Jeden z graczy wypowiada zdanie wejścia.</li>
-  </ol>
-  </section>
-  <section id="faza-c-warstwa-symboliczna-gra-właściwa" class="level5">
-  <h5>Faza C — Warstwa Symboliczna (gra właściwa)</h5>
-  <p>Gracie scenami. Każda scena ma:</p>
-  <ul>
-  <li><em>miejsce / obraz</em> (co widać)</li>
-  <li><em>napięcie</em> (o co tu chodzi)</li>
-  <li><em>decyzję</em> (co gracze robią)</li>
-  <li>rozstrzygnięcie:
-  <ul>
-  <li><strong>zwykłe działanie</strong> (procedura poniżej),</li>
-  <li><strong>scenę progową</strong> (zob. <a href="#alchemy-progi">Alchemy: Progi</a>),</li>
-  <li>opcjonalnie: <strong>Test</strong> (zob. <a href="#alchemy-testy">Alchemy: Testy</a>).</li>
-  </ul></li>
-  </ul>
-  </section>
-  <section id="faza-d-powrót-domknięcie" class="level5">
-  <h5>Faza D — Powrót (domknięcie)</h5>
-  <ol type="1">
-  <li>MG zamyka ostatnią scenę i wracacie do Warstwy Bazowej.</li>
-  <li>MG prowadzi krótki Rytuał Powrotu.</li>
-  <li>Na koniec każda postać mówi jedno zdanie: <em>„Co zostaje we mnie po tej podróży?”</em></li>
-  </ol>
-  <hr />
-  </section>
-  </section>
-  <section id="procedury-w-warstwie-symbolicznej-dwie-prędkości-opcjonalny-test" class="level4">
-  <h4>Procedury w Warstwie Symbolicznej (dwie prędkości + opcjonalny Test)</h4>
-  <blockquote>
-  <p>Sceny progowe są opisane w rozdziale <a href="#alchemy-progi">Alchemy: Progi</a>.</p>
-  </blockquote>
-  <p>W Warstwie Symbolicznej nie rzucasz. <strong>Płacisz tym, czym jesteś poruszony.</strong></p>
-  <p>Domyślnie gracie dwiema prędkościami:</p>
-  <ul>
-  <li><strong>Zwykłe działanie</strong> (gdy stawka jest sceniczna) → procedura poniżej</li>
-  <li><strong>Scena progowa</strong> (gdy stawka jest śmiertelna / nieodwracalna) → użyj rozdziału <a href="#alchemy-progi">Alchemy: Progi</a></li>
-  </ul>
-  <p>Opcjonalnie możecie włączyć trzeci tryb:</p>
-  <ul>
-  <li><strong>Test</strong> (gdy stawka jest lokalna, ale realna) → użyj rozdziału <a href="#alchemy-testy">Alchemy: Testy</a></li>
-  </ul>
-  <p><code>Test</code> i <code>Próg</code> to różne procedury. Próg nie jest „trudniejszym Testem”.</p>
-  <p>W scenie progowej wybierasz parę czynności z karty (<code>Integracja/Kompulsja</code>). To, która strona pary się uruchamia, wynika z tabeli Nacisk x Napięcie.</p>
-  <hr />
-  </section>
-  <section id="zwykłe-działanie-procedura-podstawowa" class="level4">
-  <h4>Zwykłe działanie (procedura podstawowa)</h4>
-  <p>W zwykłej scenie (bez progu):</p>
-  <ol type="1">
-  <li>Gracz mówi <strong>intencję</strong> (co chce osiągnąć).</li>
-  <li>Wybiera <strong>zasób</strong> (jaką energią to robi) i opisuje krótko działanie.</li>
-  <li>MG mówi <strong>koszt</strong> (0–3) i <strong>stawkę fabularną</strong>.</li>
-  <li>Gracz płaci koszt i scena idzie dalej.</li>
-  </ol>
-  <p>Jeśli stawka jest lokalna, ale realna – użyj <a href="#alchemy-testy">Alchemy: Testy</a>. Jeśli scena jest progowa (śmiertelna/nieodwracalna) – użyj <a href="#alchemy-progi">Alchemy: Progi</a>.</p>
-  <hr />
-  </section>
-  <section id="odnowa-żeby-gra-nie-umarła-z-wyczerpania" class="level4">
-  <h4>Odnowa (żeby gra nie umarła z wyczerpania)</h4>
-  <p>Alchemy ma być intensywne, ale <strong>musi się dać dokończyć sesję</strong>.</p>
-  <section id="oddech-raz-na-scenę-na-gracza" class="level5">
-  <h5>Oddech (raz na scenę, na gracza)</h5>
-  <p>Jeśli gracz w trakcie sceny wybierze chwilę zatrzymania (cisza, gest, ugruntowanie, rezygnacja z przewagi), może powiedzieć:</p>
-  <blockquote>
-  <p>„Biorę oddech.”</p>
-  </blockquote>
-  <p>i odzyskać <strong>1 żeton</strong> jednego z dwóch zasobów przeciwstawnych do tego, który właśnie dominował w scenie.</p>
-  <p>Przykład: jeśli scena była o <img class="site-emoji-symbol" src="../emojis/2600.png?v=0.0.34" alt="☀️" loading="lazy" decoding="async" /> Woli (nacisk, granice) → oddech może oddać <img class="site-emoji-symbol" src="../emojis/1f319.png?v=0.0.34" alt="🌙" loading="lazy" decoding="async" /> Czucie.</p>
-  </section>
-  <section id="przełom-mocna-odnowa-opcjonalne" class="level5">
-  <h5>Przełom (mocna odnowa, opcjonalne)</h5>
-  <p>Jeśli gracz autentycznie nazwie i weźmie na siebie trudny kawałek (słowem, gestem, wyborem) i MG to uzna:</p>
-  <ul>
-  <li>odzyskuje <strong>2 żetony dowolne</strong></li>
-  <li>MG zmienia warstwę symboliczną: <em>„świat przestawia jeden element”</em> (mała, ale trwała zmiana w obrazie)</li>
-  </ul>
-  <hr />
-  </section>
-  </section>
-  <section id="archetypy-dwie-realizacje-integracja-i-kompulsja" class="level4">
-  <h4>Archetypy (dwie realizacje: Integracja i Kompulsja)</h4>
-  <p>Archetyp to styl przechodzenia przez progi. Nie grasz „rolą” — grasz <strong>sposobem obchodzenia się z energią</strong>. W praktyce wybierasz jedną z grywalnych <strong>Dróg postaci</strong> zbudowanych dla danego settingu. Droga nie odpowiada na pytanie „jaki masz zawód?”, tylko „jak działasz pod presją i jaką cenę płacisz?”. Ten sam fach może być realizowany przez różne Drogi.</p>
-  <section id="dwie-strony-drogi-integracja-i-kompulsja" class="level5">
-  <h5>Dwie strony Drogi (Integracja i Kompulsja)</h5>
-  <p>Droga ma dwie strony rozwoju:</p>
-  <ul>
-  <li><strong>Integrację</strong></li>
-  <li><strong>Kompulsję</strong> (stronę Kompleksu)</li>
-  </ul>
-  <p>Nie płacisz „punktami Integracji/Kompulsji”. Za działania płacisz żetonami Zasobów Psyche. <code>SI/SK</code> dopisujesz dopiero po rozstrzygnięciu scen, zgodnie z <a href="#alchemy-drogi-ruch-osi">Alchemy: Drogi Postaci</a>. Gdy aktywny licznik wejdzie na Przemianę, uruchamia się pakiet <code>DAR/ZEW</code> tej strony Drogi.</p>
-  <p>(Szczegóły projektowania Dróg: <a href="#alchemy-drogi-postaci">Alchemy: Drogi Postaci</a>.)</p>
-  <hr />
-  </section>
-  </section>
-  <section id="przykłady-gry-mikrosceny" class="level4">
-  <h4>Przykłady gry (mikrosceny)</h4>
-  <section id="przykład-1-scena-zwykła-wpuść-mnie" class="level5">
-  <h5>Przykład 1 — Scena zwykła („Wpuść mnie”)</h5>
-  <p><strong>Gracz:</strong> „Chcę, żeby straż twierdzy uznała mnie za posłańca i wpuściła na dziedziniec.” <strong>Gracz:</strong> „Robię to przez <img class="site-emoji-symbol" src="../emojis/2764.png?v=0.0.34" alt="❤️" loading="lazy" decoding="async" /> Czar: buduję zaufanie i mówię ich językiem.” <strong>MG:</strong> „Koszt 2. Stawka: jeśli nie zapłacisz, uznają to za podstęp i podniosą alarm.” <strong>Gracz:</strong> „Płacę 2.” <strong>MG:</strong> „Straż opuszcza broń. Rozsuwają kordon i wpuszczają cię do środka.”</p>
-  </section>
-  <section id="przykład-2-scena-z-testem-runiczny-zamek" class="level5">
-  <h5>Przykład 2 — Scena z Testem („Runiczny zamek”)</h5>
-  <p><strong>MG:</strong> „To nie jest Próg, ale stawka jest realna: hałas zamka może ściągnąć patrol. Robimy Test.” <strong>MG (sekretnie):</strong> zapisuje kartę referencyjną testu: <img class="site-emoji-symbol" src="../emojis/1f4d8.png?v=0.0.34" alt="📘" loading="lazy" decoding="async" /> Bystrość. <strong>Gracz:</strong> „Gram <img class="site-emoji-symbol" src="../emojis/1f4d8.png?v=0.0.34" alt="📘" loading="lazy" decoding="async" /> z ręki i próbuję odczytać wzór zamka.” <strong>MG:</strong> „To kod <code>zasób</code> (zgodność pełna) — sukces czysty. Zamek puszcza bez alarmu.” <strong>MG:</strong> „Zagrana karta idzie na stos odrzuconych, nie spala się.”</p>
-  </section>
-  <section id="przykład-3-scena-z-progiem-kordon-czarnego-grodu" class="level5">
-  <h5>Przykład 3 — Scena z Progiem („Kordon Czarnego Grodu”)</h5>
-  <p><strong>MG:</strong> „To jest Próg: po tej scenie albo przejdziecie przez kordon, albo stracicie człowieka po drugiej stronie. Stopień 2, Limit 2, Nacisk Społeczny.” <strong>Gracz A:</strong> „Gram <img class="site-emoji-symbol" src="../emojis/2764.png?v=0.0.34" alt="❤️" loading="lazy" decoding="async" />, para <code>przekonać/uwieść</code>.” <strong>Gracz B:</strong> „Gram <img class="site-emoji-symbol" src="../emojis/1f525.png?v=0.0.34" alt="🔥" loading="lazy" decoding="async" />, para <code>wejść pierwszy/szarżować</code>.” <strong>MG:</strong> „Odkrywam Pole 1: <img class="site-emoji-symbol" src="../emojis/2764.png?v=0.0.34" alt="❤️" loading="lazy" decoding="async" /> <code>przekonać/uwieść</code> (pokryte: brama się uchyla; niepokryte: tłum piętnuje was jako zdrajców). <img class="site-emoji-symbol" src="../emojis/2764.png?v=0.0.34" alt="❤️" loading="lazy" decoding="async" /> trafia, spala się i daje <code>Głos</code>.” <strong>MG:</strong> „Odkrywam Pole 2: <img class="site-emoji-symbol" src="../emojis/2600.png?v=0.0.34" alt="☀️" loading="lazy" decoding="async" /> <code>ochronić/osaczyć</code> (pokryte: odwrót zostaje otwarty; niepokryte: jedna osoba zostaje odcięta i wpada w ręce straży). <img class="site-emoji-symbol" src="../emojis/1f525.png?v=0.0.34" alt="🔥" loading="lazy" decoding="async" /> nie trafia i wraca na rękę.” <strong>MG:</strong> „Dla A tabela daje Kompulsję, więc para idzie stroną <code>uwieść</code>. A przesuwa Napięcie Drżący -&gt; Rozchwiany; B przesuwa Ugruntowany -&gt; Drżący, bo nie trafił.” <strong>MG:</strong> „Rozgrywamy <code>Głos</code> A i skutek pól: przechodzicie przez bramę, ale jedna osoba zostaje po złej stronie kordonu i wpada w ręce straży. To przejście kruche, więc cena zostaje z wami.” <strong>Gracz A:</strong> „Mój Ślad: <code>Ocaliłem drogę, zgubiłem twarz</code>.”</p>
-  </section>
-  <section id="przykład-4-pauza-bezpieczeństwa-w-środku-sceny" class="level5">
-  <h5>Przykład 4 — Pauza bezpieczeństwa w środku sceny</h5>
-  <p><strong>MG:</strong> „Klątwa gęstnieje nad kryptą. Powietrze robi się ciężkie i wszyscy milkną.” <strong>Gracz:</strong> „Biorę pauzę bezpieczeństwa. Potrzebuję przerwy.” <strong>MG:</strong> „Zatrzymujemy. Oddychamy. Co czujesz w ciele?”</p>
-  <hr />
-  </section>
-  </section>
-  <section id="checklista-dla-mg-żeby-sesja-była-grywalna" class="level4">
-  <h4>Checklista dla MG (żeby sesja była grywalna)</h4>
-  <p>Na start testów trzymaj się tego:</p>
-  <ul>
-  <li>każda scena musi mieć <strong>napięcie + decyzję</strong></li>
-  <li>w każdej scenie przynajmniej raz padnie: <strong>koszt i stawka</strong></li>
-  <li>przynajmniej raz w sesji wprowadź <strong>trwałą konsekwencję</strong> (żeby sprawdzić, czy cena działa w fikcji)</li>
-  <li>przynajmniej raz w sesji zapisz <strong>Ślad</strong> (żeby sprawdzić, czy cena pracuje po scenie)</li>
-  <li>jeśli używacie warstwy „wewnętrznej”: raz w sesji wprowadź jej nacisk i powiąż z wcześniej zapisanym Śladem</li>
-  </ul>
-  <p>Jeśli gracze nie wiedzą co robić: zadaj pytanie.</p>
-  <ul>
-  <li>„Co chcesz ochronić?”</li>
-  <li>„Co chcesz przeciąć?”</li>
-  <li>„Co cię przyciąga?”</li>
-  <li>„Czego nie chcesz zobaczyć?”</li>
-  </ul>
+  <p>To jest checklista na 60 sekund.</p>
+  <p>Jeśli w scenie pracuje Cień, nazwijcie go jednym zdaniem przed wejściem. Jeśli nie da się jasno ustalić stawki i kosztu, scena nie jest jeszcze gotowa.</p>
+  <p>Deagonia jest grą o decyzjach, które zostają: w świecie, w relacjach i w tobie.</p>
   <!-- docelowa długość 2 strony -->
   </section>
   </section>
@@ -394,7 +248,7 @@
   </section>
   <section id="czym-jest-echo" class="level4">
   <h4>Czym jest Echo?</h4>
-  <p><strong>Echo</strong> to główna przestrzeń gry w systemie Deagonia — świat, w którym działają Archetypy graczy, opisane jako <a href="#rulebook-drogi">Drogi postaci</a>.<br />
+  <p><strong>Echo</strong> to główna przestrzeń gry w systemie Deagonia — świat, w którym działają Archetypy graczy, opisane jako Drogi postaci.<br />
   Nie jest to jednak sen w czystym sensie: <strong>Echo nie jest totalnie nielinearne ani abstrakcyjne.</strong><br />
   To raczej świat <strong>mityczny, symboliczny, pogłębiony</strong>, w którym wydarzenia mają zarówno fabularne, jak i psychiczne znaczenie.</p>
   <blockquote>
@@ -405,7 +259,7 @@
   <h5>Warstwa Pierwsza</h5>
   <p>To przestrzeń realistyczna, codzienna lub bliska naszej rzeczywistości.<br />
   Może być dystopią, przyszłością, światem rozpadu lub po prostu tłem psychologicznym.</p>
-  <p>Jeśli chcesz utrzymać spójny ton w opisach scen i mechaniki, zobacz rozdziały <a href="#rulebook-echo-demoagonokratia">Echo: Demoagonokratia</a>, <a href="#rulebook-echo-bogowie">Echo: Bogowie</a> i <a href="#rulebook-echo-opis-swiata">Echo: Opis świata</a>.</p>
+  <p>Jeśli chcesz utrzymać spójny ton w opisach scen i mechaniki, zobacz rozdziały Echo: Demoagonokratia, Echo: Bogowie i Echo: Opis świata.</p>
   </section>
   </section>
   </section>
@@ -429,7 +283,7 @@
 <li><a href="#jak-czytać-wersję-webową">Jak czytać wersję webową</a></li>
 <li><a href="#website-book">Webowy podręcznik</a>
 <ul>
-<li><a href="#alchemy-quickstart">Alchemy: Quickstart</a></li>
+<li><a href="#rulebook-manifest">Deagonia: Manifest</a></li>
 <li><a href="#rulebook-echo-wprowadzenie">Deagonia: Echo Wprowadzenie</a></li>
 </ul></li>
 </ul></li>
