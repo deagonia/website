@@ -132,11 +132,37 @@ body::before {
 }
 
 .site-shell {
+  --landing-hero-height: clamp(280px, 76vw, 560px);
   position: relative;
   z-index: 1;
   max-width: 1560px;
   margin: 0 auto;
   padding: 20px clamp(16px, 3vw, 40px) 64px;
+}
+
+.site-hero-backdrop {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--landing-hero-height);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.site-hero-backdrop-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.72) contrast(1.04) brightness(0.48);
+}
+
+.site-hero-backdrop-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7, 17, 15, 0.08) 0%, rgba(7, 17, 15, 0.26) 30%, rgba(7, 17, 15, 0.76) 68%, rgba(7, 17, 15, 0.96) 100%),
+    radial-gradient(circle at 14% 10%, var(--color-accent-glow-A16), var(--color-transparent) 28%);
 }
 
 .site-bar {
@@ -281,73 +307,6 @@ body::before {
 .site-body[data-loading="true"] {
   opacity: 0.56;
   transform: translateY(8px);
-}
-
-.site-landing-art {
-  float: right;
-  position: relative;
-  z-index: 3;
-  width: min(38vw, 360px);
-  margin: 8px 0 24px clamp(18px, 3vw, 32px);
-}
-
-.site-landing-art-halo {
-  position: absolute;
-  inset: auto 6% -6% -6%;
-  height: 88%;
-  border-radius: 30px;
-  background:
-    radial-gradient(circle at 30% 20%, var(--color-accent-glow-A16), var(--color-transparent) 45%),
-    radial-gradient(circle at 70% 80%, var(--color-accent-A18), var(--color-transparent) 46%),
-    linear-gradient(180deg, var(--color-white-A06), var(--color-transparent));
-  filter: blur(18px);
-  opacity: 0.95;
-  transform: rotate(-6deg);
-}
-
-.site-landing-art-card {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 2480 / 3508;
-  border: 1px solid var(--color-line-strong-A20);
-  border-radius: 28px;
-  background:
-    linear-gradient(180deg, var(--color-white-A05), var(--color-transparent)),
-    linear-gradient(140deg, var(--color-hero-start-A96), var(--color-hero-end-A94));
-  box-shadow:
-    0 30px 70px var(--color-black-A42),
-    inset 0 1px 0 var(--color-white-A12);
-  transform: rotate(5deg);
-}
-
-.site-landing-art-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(180deg, var(--color-transparent) 0%, var(--color-black-A18) 100%),
-    radial-gradient(circle at top, var(--color-white-A12), var(--color-transparent) 42%);
-  pointer-events: none;
-}
-
-.site-landing-art-card::after {
-  content: "";
-  position: absolute;
-  inset: 14px;
-  border: 1px solid var(--color-line-A12);
-  border-radius: 20px;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.site-landing-art-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  filter: saturate(0.94) contrast(1.04) brightness(0.92);
 }
 
 .site-body > section.level1:first-of-type {
@@ -796,8 +755,7 @@ body::before {
 
 .site-shell[data-page="landing"] .site-body {
   position: relative;
-  overflow: hidden;
-  padding-top: clamp(280px, 70vw, 520px);
+  padding-top: calc(var(--landing-hero-height) - clamp(84px, 16vw, 140px));
 }
 
 .site-shell[data-page="landing"] .site-body > section.level1:first-of-type,
@@ -828,51 +786,14 @@ body::before {
   background: transparent;
 }
 
-.site-shell[data-page="landing"] .site-landing-art {
-  position: absolute;
-  inset: 0 0 auto 0;
-  float: none;
-  width: 100%;
-  height: clamp(260px, 68vw, 500px);
-  margin: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.site-shell[data-page="landing"] .site-landing-art-halo,
-.site-shell[data-page="landing"] .site-landing-art-card::before,
-.site-shell[data-page="landing"] .site-landing-art-card::after {
-  display: none;
-}
-
-.site-shell[data-page="landing"] .site-landing-art-card {
-  border: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 0 0 32px 32px;
-  background: transparent;
-  box-shadow: none;
-  transform: none;
-  overflow: hidden;
-}
-
-.site-shell[data-page="landing"] .site-landing-art-image {
-  border-radius: 0 0 32px 32px;
-  opacity: 0.34;
-  filter: saturate(0.72) contrast(1.04) brightness(0.5);
-  box-shadow: none;
-}
-
 .site-shell[data-page="landing"] .site-body::before {
   content: "";
   position: absolute;
-  inset: 0 0 auto 0;
-  height: clamp(260px, 68vw, 500px);
+  inset: 0;
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgba(7, 17, 15, 0.06) 0%, rgba(7, 17, 15, 0.34) 34%, rgba(7, 17, 15, 0.82) 78%, var(--color-bg-canvas) 100%),
-    radial-gradient(circle at top left, var(--color-accent-glow-A16), var(--color-transparent) 34%);
+    linear-gradient(180deg, rgba(7, 17, 15, 0.02) 0%, rgba(7, 17, 15, 0.06) 18%, rgba(7, 17, 15, 0.26) 34%, rgba(7, 17, 15, 0.82) 68%, var(--color-bg-canvas) 100%);
 }
 
 .site-shell[data-page="landing"] .site-body section.level2,
@@ -919,10 +840,6 @@ body::before {
 }
 
 @media (max-width: 1099px) {
-  .site-landing-art {
-    width: min(44vw, 320px);
-  }
-
   .site-body {
     padding: 18px;
   }
@@ -938,40 +855,14 @@ body::before {
     padding: 14px 0 0;
   }
 
-  .site-shell[data-page="landing"] .site-body {
-    padding-top: clamp(220px, 76vw, 420px);
-  }
-
-  .site-shell[data-page="landing"] .site-landing-art {
-    height: clamp(220px, 76vw, 420px);
-  }
-
-  .site-shell[data-page="landing"] .site-landing-art-image {
-    opacity: 0.26;
-  }
-
-  .site-shell[data-page="landing"] .site-body::before {
-    height: clamp(220px, 76vw, 420px);
+  .site-shell {
+    --landing-hero-height: clamp(220px, 76vw, 420px);
   }
 }
 
 @media (max-width: 720px) {
-  .site-landing-art {
-    float: none;
-    width: min(100%, 340px);
-    margin: 0 auto 18px;
-  }
-
-  .site-landing-art-card {
-    transform: none;
-  }
-
-  .site-landing-art-halo {
-    inset: auto 4% -4% -4%;
-    transform: none;
-  }
-
   .site-shell {
+    --landing-hero-height: clamp(220px, 82vw, 420px);
     padding-inline: 12px;
     padding-bottom: 40px;
   }
@@ -1084,18 +975,6 @@ body::before {
   .site-entry-card {
     padding: 18px 16px;
     border-radius: 22px;
-  }
-
-  .site-shell[data-page="landing"] .site-landing-art {
-    inset: 0 0 auto 0;
-    width: 100%;
-    height: clamp(220px, 76vw, 420px);
-    margin: 0;
-  }
-
-  .site-shell[data-page="landing"] .site-landing-art-card,
-  .site-shell[data-page="landing"] .site-landing-art-image {
-    border-radius: 0 0 26px 26px;
   }
 
   .site-body table {
