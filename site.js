@@ -39,6 +39,14 @@ function normalizePathname(value) {
   return normalized;
 }
 
+function escapeSelectorValue(value) {
+  if (window.CSS && typeof window.CSS.escape === "function") {
+    return window.CSS.escape(String(value || ""));
+  }
+
+  return String(value || "").replace(/[^a-zA-Z0-9\-_]/g, "\\$&");
+}
+
 function registerDeagoniaWebsite(AlpineInstance) {
   AlpineInstance.data("deagoniaWebsite", function (config) {
     return {
@@ -49,6 +57,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
       currentSlug: "landing",
       activePage: null,
       activeSectionId: "",
+      activeChapterId: "",
       tocHtml: "",
       tocQuery: "",
       tocHasNoResults: false,
@@ -58,6 +67,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
       sectionObserver: null,
       tocObserver: null,
       tocEntries: [],
+      chapterEntries: [],
 
       async init() {
         this.currentSlug = this.config.initialPage || "landing";
@@ -67,6 +77,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
 
         this.syncDocumentMeta();
         this.bindBodyLinks();
+        this.refreshChapterBindings();
         this.refreshSectionBindings();
         this.refreshTocBindings();
         this.applyCurrentHash(true, true);
@@ -287,6 +298,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
           this.tocHtml = tocHtml.trim();
           this.syncDocumentMeta();
           this.bindBodyLinks();
+          this.refreshChapterBindings();
           this.refreshSectionBindings();
           this.refreshTocBindings();
           this.applyCurrentHash(true, true);
@@ -449,10 +461,143 @@ function registerDeagoniaWebsite(AlpineInstance) {
         this.syncActiveTocLink();
       },
 
+      formatChapterLabel(sectionId, headingText) {
+        var normalizedHeading = String(headingText || "").trim();
+
+        if (sectionId === "website-handbook") {
+          return "Wstęp";
+        }
+
+        if (sectionId === "rulebook-manifest") {
+          return "Manifest";
+        }
+
+        if (sectionId === "rulebook-echo-wprowadzenie") {
+          return "Echo";
+        }
+
+        return normalizedHeading.replace(/^Deagonia:\s*/i, "").trim() || normalizedHeading || "Rozdział";
+      },
+
+      refreshChapterBindings() {
+        this.chapterEntries = [];
+        this.activeChapterId = "";
+
+        if (this.currentSlug !== "handbook" || !this.$refs.body) {
+          return;
+        }
+
+        var self = this;
+        var sections = Array.prototype.slice.call(this.$refs.body.querySelectorAll(":scope > section.level1"));
+
+        sections.forEach(function (section) {
+          if (!section.id) {
+            return;
+          }
+
+          var heading = section.querySelector(":scope > h1");
+          var label = self.formatChapterLabel(section.id, heading ? heading.textContent : "");
+
+          self.chapterEntries.push({
+            id: section.id,
+            label: label,
+            section: section,
+          });
+        });
+      },
+
+      goChapter(chapterId) {
+        if (this.currentSlug !== "handbook") {
+          this.go("handbook", false);
+          return;
+        }
+
+        var chapter = this.chapterEntries.find(function (entry) {
+          return entry.id === chapterId;
+        });
+
+        if (!chapter || !chapter.section) {
+          return;
+        }
+
+        chapter.section.scrollIntoView({ behavior: "smooth", block: "start" });
+        this.activeChapterId = chapter.id;
+        window.history.replaceState({ slug: this.currentSlug }, "", this.pageHref("handbook") + "#" + encodeURIComponent(chapter.id));
+        this.centerActiveChapter(chapter, false);
+      },
+
       syncScrollState() {
         this.isScrolled = window.scrollY > 8;
+        this.syncActiveChapter();
         this.syncTocFooterClearance();
         this.syncActiveTocLink();
+      },
+
+      syncActiveChapter(forceCenter) {
+        if (this.currentSlug !== "handbook" || !Array.isArray(this.chapterEntries) || this.chapterEntries.length === 0) {
+          this.activeChapterId = "";
+          return;
+        }
+
+        var offset = this.isScrolled ? 162 : 178;
+        var currentChapter = this.chapterEntries[0];
+        var documentElement = document.documentElement;
+        var scrollBottom = window.scrollY + window.innerHeight;
+        var pageBottom = Math.max(
+          document.body ? document.body.scrollHeight : 0,
+          documentElement ? documentElement.scrollHeight : 0
+        );
+        var isNearPageBottom = pageBottom - scrollBottom <= Math.max(72, window.innerHeight * 0.08);
+
+        if (isNearPageBottom) {
+          currentChapter = this.chapterEntries[this.chapterEntries.length - 1];
+        } else {
+          this.chapterEntries.forEach(function (entry) {
+            if (entry.section.getBoundingClientRect().top - offset <= 0) {
+              currentChapter = entry;
+            }
+          });
+        }
+
+        var previousChapterId = this.activeChapterId;
+        this.activeChapterId = currentChapter.id;
+
+        if (currentChapter && (forceCenter || previousChapterId !== currentChapter.id)) {
+          this.centerActiveChapter(currentChapter, !previousChapterId);
+        }
+      },
+
+      centerActiveChapter(chapter, immediate) {
+        if (!chapter || !chapter.id || !this.$refs.chapterRail) {
+          return;
+        }
+
+        var container = this.$refs.chapterRail;
+        var link = container.querySelector("[data-chapter-id='" + escapeSelectorValue(chapter.id) + "']");
+        if (!link) {
+          return;
+        }
+
+        var linkRect = link.getBoundingClientRect();
+        var containerRect = container.getBoundingClientRect();
+        var maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+        if (maxScrollLeft <= 0) {
+          return;
+        }
+
+        var delta = linkRect.left - containerRect.left - container.clientWidth / 2 + linkRect.width / 2;
+        var nextScrollLeft = Math.max(0, Math.min(maxScrollLeft, container.scrollLeft + delta));
+
+        if (Math.abs(nextScrollLeft - container.scrollLeft) < 8) {
+          return;
+        }
+
+        container.scrollTo({
+          left: nextScrollLeft,
+          behavior:
+            immediate || window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        });
       },
 
       syncActiveTocLink(forceCenter) {
@@ -473,7 +618,14 @@ function registerDeagoniaWebsite(AlpineInstance) {
           return;
         }
 
-        var offset = this.isScrolled ? 118 : 134;
+        var offset =
+          this.currentSlug === "handbook"
+            ? this.isScrolled
+              ? 170
+              : 186
+            : this.isScrolled
+              ? 118
+              : 134;
         var currentEntry = visibleEntries[0];
         var documentElement = document.documentElement;
         var scrollBottom = window.scrollY + window.innerHeight;

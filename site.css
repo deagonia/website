@@ -298,6 +298,62 @@ body::before {
   width: min(calc(100% - (var(--page-gutter) * 2)), 1480px);
 }
 
+.site-chapter-bar {
+  position: sticky;
+  top: 74px;
+  z-index: 24;
+  width: min(calc(100% - (var(--page-gutter) * 2)), 1480px);
+  margin: -6px auto 18px;
+}
+
+.site-chapter-rail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 8px 4px 4px;
+  scrollbar-width: none;
+}
+
+.site-chapter-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.site-chapter-link {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 16px;
+  border: 1px solid var(--color-line-A10);
+  border-radius: 999px;
+  background: rgba(12, 17, 19, 0.82);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  transition: color 140ms ease, background 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.site-chapter-link:hover,
+.site-chapter-link:focus-visible {
+  color: var(--color-text-strong);
+  background: rgba(18, 25, 28, 0.92);
+  border-color: var(--color-line-strong-A20);
+  transform: translateY(-1px);
+}
+
+.site-chapter-link.is-active {
+  color: var(--color-text-on-accent);
+  background: var(--color-accent);
+  border-color: transparent;
+}
+
 .site-footer {
   width: min(calc(100% - (var(--page-gutter) * 2)), 1560px);
   position: relative;
@@ -984,6 +1040,7 @@ body::before {
   max-width: 72ch;
   margin-left: auto;
   margin-right: auto;
+  scroll-margin-top: 168px;
 }
 
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type > *:first-child,
@@ -1470,6 +1527,23 @@ body::before {
     top: 10px;
     padding: 8px 10px;
     border-radius: 18px;
+  }
+
+  .site-chapter-bar {
+    top: 66px;
+    margin: -2px auto 14px;
+  }
+
+  .site-chapter-rail {
+    gap: 8px;
+    padding: 6px 0 2px;
+  }
+
+  .site-chapter-link {
+    min-height: 34px;
+    padding: 0 14px;
+    font-size: 0.76rem;
+    letter-spacing: 0.07em;
   }
 
   .site-brand {
