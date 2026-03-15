@@ -594,6 +594,8 @@ body::before {
   box-shadow: none;
   vertical-align: -0.12em;
   object-fit: contain;
+  filter: brightness(0) invert(0.96);
+  opacity: 0.92;
 }
 
 .site-body pre,
