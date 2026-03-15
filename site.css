@@ -784,6 +784,7 @@ body::before {
   line-height: 0.9;
   letter-spacing: -0.045em;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .site-landing-kicker {
