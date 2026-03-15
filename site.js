@@ -388,7 +388,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
             return;
           }
 
-          self.tocEntries.push({ id: id, link: link, section: section });
+          self.tocEntries.push({ id: id, link: link, section: section, item: link.closest("li") });
         });
 
         this.filterToc();
@@ -461,10 +461,22 @@ function registerDeagoniaWebsite(AlpineInstance) {
           return;
         }
 
-        var offset = this.isScrolled ? 118 : 134;
-        var currentEntry = this.tocEntries[0];
+        var visibleEntries = this.tocEntries.filter(function (entry) {
+          return entry.item && !entry.item.hidden && entry.link.offsetParent !== null;
+        });
 
-        this.tocEntries.forEach(function (entry) {
+        if (visibleEntries.length === 0) {
+          this.activeTocEntryId = "";
+          this.tocEntries.forEach(function (entry) {
+            entry.link.classList.remove("is-active");
+          });
+          return;
+        }
+
+        var offset = this.isScrolled ? 118 : 134;
+        var currentEntry = visibleEntries[0];
+
+        visibleEntries.forEach(function (entry) {
           if (entry.section.getBoundingClientRect().top - offset <= 0) {
             currentEntry = entry;
           }
@@ -487,7 +499,7 @@ function registerDeagoniaWebsite(AlpineInstance) {
           return;
         }
 
-        var container = this.$refs.toc.closest(".site-toc-card");
+        var container = this.$refs.toc;
         if (!container || container.getClientRects().length === 0 || container.clientHeight < 40) {
           return;
         }

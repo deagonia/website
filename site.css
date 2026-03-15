@@ -757,40 +757,43 @@ body::before {
 
 .site-toc-card {
   max-height: calc(100vh - 120px);
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
   padding: 18px 18px 20px;
   border: 1px solid var(--color-line-A10);
   border-radius: var(--radius-lg);
   background: var(--color-night-A92);
   color: var(--color-text);
   box-shadow: var(--shadow-strong);
+}
+
+.site-toc-content {
+  min-width: 0;
+  overflow: auto;
+  padding-right: 4px;
   scrollbar-width: thin;
   scrollbar-color: var(--color-accent-deep) var(--color-white-A03);
 }
 
-.site-toc-card::-webkit-scrollbar {
+.site-toc-content::-webkit-scrollbar {
   width: 10px;
 }
 
-.site-toc-card::-webkit-scrollbar-track {
+.site-toc-content::-webkit-scrollbar-track {
   background: var(--color-white-A03);
   border-radius: 999px;
 }
 
-.site-toc-card::-webkit-scrollbar-thumb {
+.site-toc-content::-webkit-scrollbar-thumb {
   background: var(--color-accent-deep);
   border: 2px solid transparent;
   border-radius: 999px;
   background-clip: padding-box;
 }
 
-.site-toc-card::-webkit-scrollbar-thumb:hover {
+.site-toc-content::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent);
   background-clip: padding-box;
-}
-
-.site-toc-content {
-  min-width: 0;
 }
 
 .site-toc-kicker {
@@ -961,7 +964,7 @@ body::before {
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type {
   max-width: 72ch;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 0 20vh;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -1251,6 +1254,51 @@ body::before {
   border-top: 1px solid var(--color-line-A12);
 }
 
+.site-shell[data-page="community"] .site-body > section.level1:first-of-type {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-inline: clamp(10px, 2vw, 22px);
+}
+
+.site-shell[data-page="community"] .site-body > section.level1:first-of-type blockquote {
+  max-width: 46ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-shell[data-page="community"] .site-entry-grid {
+  max-width: 920px;
+  margin: 0 auto;
+  gap: 22px;
+}
+
+.site-shell[data-page="community"] .site-entry-card {
+  align-items: flex-start;
+  padding: clamp(22px, 2.4vw, 28px);
+  border-radius: 26px;
+}
+
+.site-shell[data-page="community"] .site-entry-card h3,
+.site-shell[data-page="community"] .site-entry-card p {
+  text-align: left;
+}
+
+.site-shell[data-page="community"] .site-entry-card p {
+  max-width: none;
+}
+
+.site-shell[data-page="community"] .site-entry-card .site-cta {
+  width: auto;
+  min-width: 220px;
+}
+
+.site-shell[data-page="community"] .site-body section.level2 {
+  max-width: 72ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (min-width: 1100px) {
   .site-frame--with-toc {
     --toc-width: 320px;
@@ -1511,6 +1559,11 @@ body::before {
   .site-shell[data-page="community"] .site-body section.level2 {
     padding: 0;
     border-radius: 0;
+  }
+
+  .site-shell[data-page="community"] .site-entry-card .site-cta {
+    width: 100%;
+    min-width: 0;
   }
 
   .site-landing-kicker {
