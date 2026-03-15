@@ -5,66 +5,66 @@
   --font-brand: "GFS Didot", "Times New Roman", serif;
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Literata", Georgia, serif;
-  --font-ui: "Noto Sans", "Segoe UI", sans-serif;
+  --font-ui: "Source Sans 3", "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", Consolas, monospace;
 
   --color-transparent: transparent;
   --color-white: #ffffff;
   --color-black: #000000;
-  --color-shadow-ink: #030205;
-  --color-night: #0a090d;
-  --color-ember: #742f27;
-  --color-violet-haze: #533561;
-  --color-panel-top: #141016;
-  --color-panel-bottom: #0d0a11;
-  --color-line-warm: #ffd3a6;
-  --color-text-highlight: #ffd4ad;
-  --color-ivory: #fff8ee;
-  --color-code-bg: #07060a;
-  --color-code-text: #f9f0df;
+  --color-shadow-ink: #020301;
+  --color-night: #0c1109;
+  --color-ember: #6d4a25;
+  --color-violet-haze: #203434;
+  --color-panel-top: #141b12;
+  --color-panel-bottom: #0d120b;
+  --color-line-warm: #cfc29f;
+  --color-text-highlight: #d6cab0;
+  --color-ivory: #f1e7d2;
+  --color-code-bg: #0a0f0b;
+  --color-code-text: #efe4cf;
 
-  --color-bg-canvas: #08070b;
-  --color-bg-elevated: #100d14;
-  --color-bg-deep: #18131b;
-  --color-surface: #120e14;
-  --color-surface-A90: rgba(18, 14, 20, 0.9);
-  --color-surface-strong: #1c151f;
-  --color-surface-strong-A94: rgba(28, 21, 31, 0.94);
-  --color-surface-soft: #261d24;
-  --color-surface-soft-A90: rgba(38, 29, 36, 0.9);
-  --color-hero-start: #18121a;
-  --color-hero-start-A96: rgba(24, 18, 26, 0.96);
-  --color-hero-end: #3b231e;
-  --color-hero-end-A94: rgba(59, 35, 30, 0.94);
+  --color-bg-canvas: #080d08;
+  --color-bg-elevated: #10160f;
+  --color-bg-deep: #131a11;
+  --color-surface: #121810;
+  --color-surface-A90: rgba(18, 24, 16, 0.9);
+  --color-surface-strong: #182019;
+  --color-surface-strong-A94: rgba(24, 32, 25, 0.94);
+  --color-surface-soft: #222a20;
+  --color-surface-soft-A90: rgba(34, 42, 32, 0.9);
+  --color-hero-start: #182015;
+  --color-hero-start-A96: rgba(24, 32, 21, 0.96);
+  --color-hero-end: #2c271d;
+  --color-hero-end-A94: rgba(44, 39, 29, 0.94);
 
-  --color-text: #f5ecdd;
-  --color-text-strong: #fff7eb;
-  --color-text-muted: #cfbfac;
-  --color-text-faint: #98897d;
-  --color-text-on-accent: #fff6ec;
-  --color-text-A88: rgba(245, 236, 221, 0.88);
-  --color-text-A80: rgba(245, 236, 221, 0.8);
-  --color-text-A58: rgba(245, 236, 221, 0.58);
+  --color-text: #ebe0c9;
+  --color-text-strong: #f7efdc;
+  --color-text-muted: #c5b89a;
+  --color-text-faint: #91856c;
+  --color-text-on-accent: #f7f0df;
+  --color-text-A88: rgba(235, 224, 201, 0.88);
+  --color-text-A80: rgba(235, 224, 201, 0.8);
+  --color-text-A58: rgba(235, 224, 201, 0.58);
 
-  --color-line: #ffdfbe;
-  --color-line-A10: rgba(255, 223, 190, 0.1);
-  --color-line-A12: rgba(255, 223, 190, 0.12);
-  --color-line-strong: #ffcd98;
-  --color-line-strong-A20: rgba(255, 205, 152, 0.2);
-  --color-line-warm-A08: rgba(255, 211, 166, 0.08);
+  --color-line: #bcae86;
+  --color-line-A10: rgba(188, 174, 134, 0.1);
+  --color-line-A12: rgba(188, 174, 134, 0.12);
+  --color-line-strong: #d0c39d;
+  --color-line-strong-A20: rgba(208, 195, 157, 0.2);
+  --color-line-warm-A08: rgba(207, 194, 159, 0.08);
 
-  --color-accent: #c86a43;
-  --color-accent-glow: #f0ab6a;
-  --color-accent-deep: #7d302d;
-  --color-accent-A12: rgba(200, 106, 67, 0.12);
-  --color-accent-A18: rgba(200, 106, 67, 0.18);
-  --color-accent-glow-A55: rgba(240, 171, 106, 0.55);
-  --color-accent-glow-A42: rgba(240, 171, 106, 0.42);
-  --color-accent-glow-A16: rgba(240, 171, 106, 0.16);
-  --color-accent-glow-A08: rgba(240, 171, 106, 0.08);
-  --color-accent-glow-A07: rgba(240, 171, 106, 0.07);
-  --color-ember-A18: rgba(116, 47, 39, 0.18);
-  --color-violet-haze-A12: rgba(83, 53, 97, 0.12);
+  --color-accent: #3f7f89;
+  --color-accent-glow: #76b9c0;
+  --color-accent-deep: #274e58;
+  --color-accent-A12: rgba(63, 127, 137, 0.12);
+  --color-accent-A18: rgba(63, 127, 137, 0.18);
+  --color-accent-glow-A55: rgba(118, 185, 192, 0.55);
+  --color-accent-glow-A42: rgba(118, 185, 192, 0.42);
+  --color-accent-glow-A16: rgba(118, 185, 192, 0.16);
+  --color-accent-glow-A08: rgba(118, 185, 192, 0.08);
+  --color-accent-glow-A07: rgba(118, 185, 192, 0.07);
+  --color-ember-A18: rgba(109, 74, 37, 0.18);
+  --color-violet-haze-A12: rgba(32, 52, 52, 0.12);
 
   --color-white-A12: rgba(255, 255, 255, 0.12);
   --color-white-A06: rgba(255, 255, 255, 0.06);
@@ -199,7 +199,7 @@ body::before {
 }
 
 .site-nav-discord {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-glow));
+  background: linear-gradient(135deg, var(--color-ember), var(--color-line-strong));
   color: var(--color-text-on-accent);
 }
 
@@ -535,6 +535,7 @@ body::before {
   border-radius: var(--radius-sm);
   background:
     radial-gradient(circle at top right, var(--color-accent-glow-A08), var(--color-transparent) 42%),
+    radial-gradient(circle at bottom left, var(--color-ember-A18), var(--color-transparent) 48%),
     linear-gradient(180deg, var(--color-accent-A12), var(--color-transparent));
 }
 
@@ -551,7 +552,7 @@ body::before {
   min-height: 44px;
   padding: 0 16px;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-glow));
+  background: linear-gradient(135deg, var(--color-ember), var(--color-line-strong));
   color: var(--color-text-on-accent);
   text-decoration: none;
   font-family: var(--font-ui);
