@@ -475,12 +475,23 @@ function registerDeagoniaWebsite(AlpineInstance) {
 
         var offset = this.isScrolled ? 118 : 134;
         var currentEntry = visibleEntries[0];
+        var documentElement = document.documentElement;
+        var scrollBottom = window.scrollY + window.innerHeight;
+        var pageBottom = Math.max(
+          document.body ? document.body.scrollHeight : 0,
+          documentElement ? documentElement.scrollHeight : 0
+        );
+        var isNearPageBottom = pageBottom - scrollBottom <= Math.max(72, window.innerHeight * 0.08);
 
-        visibleEntries.forEach(function (entry) {
-          if (entry.section.getBoundingClientRect().top - offset <= 0) {
-            currentEntry = entry;
-          }
-        });
+        if (isNearPageBottom) {
+          currentEntry = visibleEntries[visibleEntries.length - 1];
+        } else {
+          visibleEntries.forEach(function (entry) {
+            if (entry.section.getBoundingClientRect().top - offset <= 0) {
+              currentEntry = entry;
+            }
+          });
+        }
 
         var previousEntryId = this.activeTocEntryId;
         this.activeTocEntryId = currentEntry.id;

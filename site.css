@@ -84,6 +84,7 @@
   --color-ivory-A02: rgba(243, 237, 225, 0.02);
   --color-code-bg-A82: rgba(16, 22, 24, 0.82);
   --color-shadow-ink-A34: rgba(3, 2, 5, 0.34);
+  --color-shadow-ink-A80: rgba(3, 2, 5, 0.8);
   --color-black-A42: rgba(0, 0, 0, 0.42);
   --color-black-A28: rgba(0, 0, 0, 0.28);
   --color-black-A18: rgba(0, 0, 0, 0.18);
@@ -172,7 +173,7 @@ body::before {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 10px 12px;
+  padding: 0.6em 1.2em;
   margin: 0 auto 22px;
   border: 1px solid var(--color-line-A10);
   border-radius: 24px;
@@ -184,9 +185,11 @@ body::before {
 
 .site-shell[data-scrolled="true"] .site-bar {
   top: 0;
-  transform: translateY(-8px);
+  transform: translateY(-1px);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   background: rgba(12, 17, 19, 0.94);
-  box-shadow: 0 20px 42px var(--color-shadow-ink-A34);
+  box-shadow: 0 20px 42px var(--color-shadow-ink-A80);
 }
 
 .site-brand {
@@ -770,7 +773,7 @@ body::before {
 .site-toc-content {
   min-width: 0;
   overflow: auto;
-  padding-right: 4px;
+  padding: 1em 0 6em;
   scrollbar-width: thin;
   scrollbar-color: var(--color-accent-deep) var(--color-white-A03);
 }
@@ -963,12 +966,15 @@ body::before {
 
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type {
   max-width: 72ch;
-  margin: 0 auto;
-  padding: 0 0 20vh;
+  margin: 0 auto;  
+  padding: 0;
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+}
+.site-shell[data-page="handbook"] .site-body > section:last-of-type {
+  padding: 0 0 33vh;
 }
 
 .site-shell[data-page="handbook"] .site-body section.level1,
