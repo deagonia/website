@@ -17,7 +17,7 @@
   var stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
   stylesheet.href =
-    "https://fonts.googleapis.com/css2?family=GFS+Didot&family=GFS+Neohellenic:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif:wght@400;500;600;700&display=swap";
+    "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=GFS+Didot&family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700&family=Noto+Sans:wght@400;500;700&display=swap";
   stylesheet.setAttribute("data-deagonia-fonts", "true");
 
   document.head.appendChild(preconnectApi);

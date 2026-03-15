@@ -2,9 +2,10 @@
 :root {
   color-scheme: dark;
 
-  --font-display: "GFS Didot", "Times New Roman", serif;
-  --font-body: "Noto Serif", Georgia, serif;
-  --font-ui: "GFS Neohellenic", "Segoe UI", sans-serif;
+  --font-brand: "GFS Didot", "Times New Roman", serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Literata", Georgia, serif;
+  --font-ui: "Noto Sans", "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", Consolas, monospace;
 
   --color-transparent: transparent;
@@ -154,7 +155,7 @@ body::before {
 .site-brand {
   color: var(--color-text-strong);
   text-decoration: none;
-  font-family: var(--font-display);
+  font-family: var(--font-brand);
   font-size: 1.08rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -241,7 +242,7 @@ body::before {
   max-width: 12ch;
   margin: 0 0 18px;
   color: var(--color-text-strong);
-  font-family: var(--font-display);
+  font-family: var(--font-brand);
   font-size: clamp(2.9rem, 10vw, 5.8rem);
   font-weight: 600;
   line-height: 0.88;
@@ -442,7 +443,7 @@ body::before {
 
 .site-toc-kicker {
   margin: 0 0 12px;
-  font-family: var(--font-body);
+  font-family: var(--font-ui);
   font-size: 0.82rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
