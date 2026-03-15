@@ -50,6 +50,8 @@ function registerDeagoniaWebsite(AlpineInstance) {
       activePage: null,
       activeSectionId: "",
       tocHtml: "",
+      tocQuery: "",
+      tocHasNoResults: false,
       siteBasePath: "/",
       sectionObserver: null,
       tocObserver: null,
@@ -83,6 +85,10 @@ function registerDeagoniaWebsite(AlpineInstance) {
 
       pageHref(slug) {
         return this.siteBasePath + String((this.config.pageMap[slug] || {}).path || "");
+      },
+
+      siteAssetHref(filename) {
+        return this.siteBasePath + String(filename || "") + "?v=" + this.config.assetVersion;
       },
 
       currentSections() {
@@ -232,6 +238,8 @@ function registerDeagoniaWebsite(AlpineInstance) {
         this.isLoading = true;
         this.menuOpen = false;
         this.tocOpen = false;
+        this.tocQuery = "";
+        this.tocHasNoResults = false;
         this.$refs.body.setAttribute("data-loading", "true");
 
         if (!immediate) {
@@ -334,11 +342,13 @@ function registerDeagoniaWebsite(AlpineInstance) {
 
         if (!this.activePage || !this.activePage.showToc || !this.$refs.toc) {
           this.tocHtml = "";
+          this.tocHasNoResults = false;
           return;
         }
 
         this.tocHtml = this.$refs.toc.innerHTML.trim();
         if (!this.tocHtml) {
+          this.tocHasNoResults = false;
           return;
         }
 
@@ -407,6 +417,60 @@ function registerDeagoniaWebsite(AlpineInstance) {
             this.tocObserver.observe(section);
           }.bind(this)
         );
+
+        this.filterToc();
+      },
+
+      filterToc() {
+        if (!this.$refs.toc) {
+          this.tocHasNoResults = false;
+          return;
+        }
+
+        var query = String(this.tocQuery || "").trim().toLocaleLowerCase("pl");
+        var rootList = this.$refs.toc.querySelector("#TOC > ul, ul");
+
+        if (!rootList) {
+          this.tocHasNoResults = false;
+          return;
+        }
+
+        function visit(list) {
+          var hasVisibleItem = false;
+
+          Array.prototype.forEach.call(list.children, function (item) {
+            if (!item.matches("li")) {
+              return;
+            }
+
+            var link = item.querySelector(":scope > a");
+            var childList = item.querySelector(":scope > ul");
+            var selfMatches =
+              !query ||
+              (link && link.textContent && link.textContent.toLocaleLowerCase("pl").includes(query));
+            var childMatches = childList ? visit(childList) : false;
+            var isVisible = !query || selfMatches || childMatches;
+
+            item.hidden = !isVisible;
+            if (link) {
+              link.classList.toggle("is-match", Boolean(query) && Boolean(selfMatches));
+            }
+
+            if (isVisible) {
+              hasVisibleItem = true;
+            }
+          });
+
+          return hasVisibleItem;
+        }
+
+        this.tocHasNoResults = query ? !visit(rootList) : false;
+
+        if (!query) {
+          Array.prototype.forEach.call(this.$refs.toc.querySelectorAll("#TOC a.is-match"), function (link) {
+            link.classList.remove("is-match");
+          });
+        }
       },
 
       refreshSectionBindings() {
