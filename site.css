@@ -223,6 +223,73 @@ body::before {
   box-shadow: var(--shadow-strong);
 }
 
+.site-landing-art {
+  float: right;
+  position: relative;
+  z-index: 3;
+  width: min(38vw, 360px);
+  margin: 8px 0 24px clamp(18px, 3vw, 32px);
+}
+
+.site-landing-art-halo {
+  position: absolute;
+  inset: auto 6% -6% -6%;
+  height: 88%;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 30% 20%, var(--color-accent-glow-A16), var(--color-transparent) 45%),
+    radial-gradient(circle at 70% 80%, var(--color-accent-A18), var(--color-transparent) 46%),
+    linear-gradient(180deg, var(--color-white-A06), var(--color-transparent));
+  filter: blur(18px);
+  opacity: 0.95;
+  transform: rotate(-6deg);
+}
+
+.site-landing-art-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2480 / 3508;
+  border: 1px solid var(--color-line-strong-A20);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, var(--color-white-A05), var(--color-transparent)),
+    linear-gradient(140deg, var(--color-hero-start-A96), var(--color-hero-end-A94));
+  box-shadow:
+    0 30px 70px var(--color-black-A42),
+    inset 0 1px 0 var(--color-white-A12);
+  transform: rotate(5deg);
+}
+
+.site-landing-art-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, var(--color-transparent) 0%, var(--color-black-A18) 100%),
+    radial-gradient(circle at top, var(--color-white-A12), var(--color-transparent) 42%);
+  pointer-events: none;
+}
+
+.site-landing-art-card::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid var(--color-line-A12);
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.site-landing-art-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.94) contrast(1.04) brightness(0.92);
+}
+
 .site-body > section.level1:first-of-type {
   margin: -10px -10px 34px;
   padding: clamp(28px, 6vw, 52px);
@@ -236,6 +303,12 @@ body::before {
   box-shadow:
     inset 0 1px 0 var(--color-white-A05),
     inset 0 -40px 120px var(--color-black-A18);
+}
+
+.site-body > section.level1:first-of-type::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .site-body > section.level1:first-of-type h1 {
@@ -546,6 +619,10 @@ body::before {
 }
 
 @media (max-width: 1099px) {
+  .site-landing-art {
+    width: min(44vw, 320px);
+  }
+
   .site-body {
     padding: 18px;
   }
@@ -557,6 +634,21 @@ body::before {
 }
 
 @media (max-width: 720px) {
+  .site-landing-art {
+    float: none;
+    width: min(100%, 340px);
+    margin: 0 auto 18px;
+  }
+
+  .site-landing-art-card {
+    transform: none;
+  }
+
+  .site-landing-art-halo {
+    inset: auto 4% -4% -4%;
+    transform: none;
+  }
+
   .site-shell {
     padding-inline: 12px;
     padding-bottom: 40px;
