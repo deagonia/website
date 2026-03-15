@@ -637,7 +637,7 @@ body::before {
 
 .site-entry-card p {
   margin: 0;
-  max-width: 28ch;
+  max-width: 36ch;
   text-align: center;
 }
 
@@ -1181,7 +1181,7 @@ body::before {
 
 .site-shell[data-page="landing"] .site-body > section.level1:first-of-type blockquote,
 .site-shell[data-page="community"] .site-body > section.level1:first-of-type blockquote {
-  max-width: 48ch;
+  max-width: 42ch;
   margin-top: 0;
   margin-bottom: 4.8rem;
   background: transparent;
