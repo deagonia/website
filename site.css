@@ -1061,16 +1061,19 @@ body::before {
 
 @media (min-width: 1100px) {
   .site-frame--with-toc {
+    --toc-width: 320px;
+    --frame-width: min(calc(100vw - (var(--page-gutter) * 2)), 1480px);
     grid-template-columns: minmax(0, 1fr) 320px;
     align-items: start;
   }
 
   .site-toc {
-    position: sticky;
+    position: fixed;
     top: 94px;
-    inset: auto;
-    width: auto;
-    align-self: start;
+    right: calc((100vw - var(--frame-width)) / 2);
+    bottom: auto;
+    left: auto;
+    width: var(--toc-width);
     max-height: calc(100vh - 110px);
     transform: none;
   }
