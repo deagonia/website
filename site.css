@@ -284,8 +284,10 @@ body::before {
 
 .site-footer {
   width: min(calc(100% - (var(--page-gutter) * 2)), 1180px);
-  margin: 34px auto 0;
-  padding-bottom: 8px;
+  position: relative;
+  z-index: 4;
+  margin: 16px auto 0;
+  padding-bottom: 0;
 }
 
 .site-footer-inner {
@@ -311,21 +313,27 @@ body::before {
 
 .site-footer-links {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
 }
 
 .site-footer-icon-link {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  width: 40px;
+  gap: 8px;
   height: 40px;
+  padding: 0 14px 0 12px;
   border: 1px solid var(--color-line-A12);
   border-radius: 999px;
   color: var(--color-text-muted);
   background: var(--color-white-A03);
   text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   transition: color 140ms ease, border-color 140ms ease, background 140ms ease, transform 140ms ease;
 }
 
@@ -337,6 +345,10 @@ body::before {
   stroke-width: 1.85;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.site-footer-icon-link span {
+  white-space: nowrap;
 }
 
 .site-footer-icon-link:hover,
@@ -1179,8 +1191,7 @@ body::before {
   }
 
   .site-footer {
-    margin-top: 24px;
-    padding-bottom: 0;
+    margin-top: 14px;
   }
 
   .site-footer-inner {
@@ -1199,8 +1210,10 @@ body::before {
   }
 
   .site-footer-icon-link {
-    width: 38px;
     height: 38px;
+    padding: 0 12px 0 10px;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
   }
 
   .site-entry-icon {
