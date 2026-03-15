@@ -113,6 +113,7 @@ body {
   font-size: var(--main-font-size);
   color: var(--color-text);
   font-family: var(--font-body);
+  font-optical-sizing: auto;
   background: var(--color-bg-canvas);
 }
 
@@ -762,6 +763,29 @@ body::before {
   background: var(--color-night-A92);
   color: var(--color-text);
   box-shadow: var(--shadow-strong);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent-deep) var(--color-white-A03);
+}
+
+.site-toc-card::-webkit-scrollbar {
+  width: 10px;
+}
+
+.site-toc-card::-webkit-scrollbar-track {
+  background: var(--color-white-A03);
+  border-radius: 999px;
+}
+
+.site-toc-card::-webkit-scrollbar-thumb {
+  background: var(--color-accent-deep);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+.site-toc-card::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+  background-clip: padding-box;
 }
 
 .site-toc-content {
@@ -879,11 +903,26 @@ body::before {
 
 .site-toc-content a,
 .site-toc-content a:visited {
+  position: relative;
   display: inline-block;
+  padding-left: 14px;
   color: var(--color-link);
   text-decoration: none;
   line-height: 1.45;
   transition: color 140ms ease, transform 140ms ease;
+}
+
+.site-toc-content a::before {
+  content: "|";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  color: var(--color-link-active);
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 140ms ease;
 }
 
 .site-toc-content a:hover,
@@ -901,17 +940,21 @@ body::before {
   transform: translateX(2px);
 }
 
+.site-toc-content a.is-active::before {
+  opacity: 1;
+}
+
 .site-shell[data-page="landing"] .site-frame,
 .site-shell[data-page="community"] .site-frame {
   width: min(calc(100% - (var(--page-gutter) * 2)), 1080px);
 }
 
 .site-shell[data-page="handbook"] .site-body {
-  padding: clamp(18px, 3vw, 28px);
-  border: 1px solid var(--color-line-A10);
-  border-radius: 28px;
-  background: rgba(7, 10, 12, 0.86);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  padding: clamp(14px, 2vw, 24px) 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type {
@@ -924,28 +967,111 @@ body::before {
   box-shadow: none;
 }
 
+.site-shell[data-page="handbook"] .site-body section.level2,
+.site-shell[data-page="handbook"] .site-body section.level3,
+.site-shell[data-page="handbook"] .site-body section.level4 {
+  max-width: 72ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-shell[data-page="handbook"] .site-body > section.level1:first-of-type > *:first-child,
+.site-shell[data-page="handbook"] .site-body section.level2 > *:first-child,
+.site-shell[data-page="handbook"] .site-body section.level3 > *:first-child,
+.site-shell[data-page="handbook"] .site-body section.level4 > *:first-child {
+  margin-top: 0;
+}
+
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type p,
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type li,
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type blockquote,
 .site-shell[data-page="handbook"] .site-body p,
 .site-shell[data-page="handbook"] .site-body li {
   color: var(--color-text);
+  max-width: none;
+  font-size: clamp(1.03rem, 0.99rem + 0.16vw, 1.1rem);
+  line-height: 1.78;
 }
 
 .site-shell[data-page="handbook"] .site-body > section.level1:first-of-type h1 {
   max-width: none;
-  margin-bottom: 1rem;
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.45rem, 4.2vw, 3.7rem);
   letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.site-shell[data-page="handbook"] .site-body h1,
+.site-shell[data-page="handbook"] .site-body h2,
+.site-shell[data-page="handbook"] .site-body h3,
+.site-shell[data-page="handbook"] .site-body h4 {
+  margin: 0 0 0.95rem;
+}
+
+.site-shell[data-page="handbook"] .site-body h2 {
+  font-size: clamp(1.92rem, 2.3vw, 2.5rem);
+  line-height: 1;
+}
+
+.site-shell[data-page="handbook"] .site-body h3 {
+  font-size: clamp(1.42rem, 1.4vw, 1.72rem);
+  line-height: 1.08;
+}
+
+.site-shell[data-page="handbook"] .site-body h4 {
+  font-size: 0.84rem;
+  letter-spacing: 0.1em;
+}
+
+.site-shell[data-page="handbook"] .site-body > section.level1:first-of-type blockquote {
+  max-width: none;
+  margin: 1.45rem 0 2rem;
+  padding: 1rem 1.2rem 1rem 1.1rem;
+  border-left: 3px solid var(--color-line-warm);
+  border-radius: 0 18px 18px 0;
+  background: var(--color-white-A03);
+  box-shadow: inset 0 0 0 1px var(--color-line-A10);
+  color: var(--color-text-highlight);
 }
 
 .site-shell[data-page="handbook"] .site-body blockquote {
+  margin: 1.45rem 0 2rem;
+  padding: 1rem 1.2rem 1rem 1.1rem;
+  border-left-width: 3px;
+  border-left-style: solid;
   border-left-color: var(--color-line-warm);
+  border-radius: 0 18px 18px 0;
+  background: var(--color-white-A03);
+  box-shadow: inset 0 0 0 1px var(--color-line-A10);
+  color: var(--color-text-highlight);
+}
+
+.site-shell[data-page="handbook"] .site-body blockquote > :last-child {
+  margin-bottom: 0;
 }
 
 .site-shell[data-page="handbook"] .site-body section.level2 + section.level2 {
-  padding-top: 0;
-  border-top: 0;
+  margin-top: 4.4rem;
+}
+
+.site-shell[data-page="handbook"] .site-body > section.level1:first-of-type > section.level2:first-of-type {
+  margin-top: 3.2rem;
+}
+
+.site-shell[data-page="handbook"] .site-body section.level2 > section.level3:first-of-type {
+  margin-top: 2.1rem;
+}
+
+.site-shell[data-page="handbook"] .site-body section.level3 + section.level3 {
+  margin-top: 3rem;
+}
+
+.site-shell[data-page="handbook"] .site-body section.level3 > section.level4:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.site-shell[data-page="handbook"] .site-body section.level4 + section.level4 {
+  margin-top: 2.2rem;
 }
 
 .site-shell[data-page="landing"] .site-body,
