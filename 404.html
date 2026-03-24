@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Strona, której szukasz, nie została odnaleziona w Deagonii." />
+  <title>ΔΕΑΓΟΝΙΑ — 404</title>
+  <base href="/" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="preload" href="/assets/fonts/trajan-pro-3-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/site.css?v=0.0.83" />
+  <script>
+    (function () {
+      var currentPath = String(window.location.pathname || "/");
+      var normalizedPath = currentPath.replace(/\/index\.html$/, "");
+      var trimmed = normalizedPath.replace(/^\/+/, "");
+      var routes = ["","tomy/","community/","aktualnosci/","playtest/","rulebook/","playtest/deagonia-playtest/","rulebook/zanim-wejdziesz/","rulebook/fundament-deagonii/","aktualnosci/2026/"];
+
+      function redirectTo(targetPath) {
+        if (!targetPath || targetPath === currentPath) {
+          return false;
+        }
+
+        window.location.replace(targetPath + window.location.search + window.location.hash);
+        return true;
+      }
+
+      if (!trimmed || trimmed === "404.html") {
+        return;
+      }
+
+      if (routes.includes(trimmed)) {
+        if (trimmed.endsWith("/")) {
+          redirectTo("/" + trimmed);
+          return;
+        }
+
+        redirectTo("/" + trimmed + "/");
+        return;
+      }
+
+      var trimmedWithoutSlash = trimmed.replace(/\/+$/, "");
+      if (routes.includes(trimmedWithoutSlash + "/")) {
+        redirectTo("/" + trimmedWithoutSlash + "/");
+        return;
+      }
+
+      var shellPrefixes = ["playtest/", "rulebook/", "aktualnosci/"];
+      for (var index = 0; index < shellPrefixes.length; index += 1) {
+        var prefix = shellPrefixes[index];
+        if (trimmed.startsWith(prefix)) {
+          redirectTo("/" + prefix);
+          return;
+        }
+      }
+    })();
+  </script>
+</head>
+
+<body class="website-shell website-shell--404">
+  <div class="site-error-backdrop" aria-hidden="true">
+    <img class="site-error-backdrop-image" src="/assets/images/c45c5da0c5ffa0c8b3f5.webp" alt="" loading="eager" decoding="async" />
+    <div class="site-error-backdrop-scrim"></div>
+  </div>
+
+  <main class="site-error-main">
+    <section class="site-error-page" aria-labelledby="site-404-title">
+  <p class="site-error-code">404</p>
+  <h1 id="site-404-title">Ten szlak urywa się na granicy Echa.</h1>
+  <p class="site-error-lead">Strona, której szukasz, nie zostawiła tu śladu albo została przeniesiona głębiej.</p>
+  <a class="site-cta site-cta--primary site-error-cta" href="/">Wróć do strony głównej</a>
+</section>
+
+  </main>
+</body>
+
+</html>

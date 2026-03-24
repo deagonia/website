@@ -1,0 +1,21 @@
+{
+  "slug": "playtest",
+  "title": "Playtest",
+  "version": "0.0.83",
+  "releaseDate": "2026-03-19",
+  "defaultChapter": "deagonia-playtest",
+  "chapters": [
+    {
+      "slug": "deagonia-playtest",
+      "title": "Deagonia:Playtest",
+      "path": "playtest/deagonia-playtest/",
+      "bodyFragment": "fragments/playtest--deagonia-playtest.body.html",
+      "tocFragment": "fragments/playtest--deagonia-playtest.toc.html",
+      "prev": null,
+      "next": null
+    }
+  ],
+  "anchorMap": {
+    "deagoniaplaytest": "deagonia-playtest"
+  }
+}

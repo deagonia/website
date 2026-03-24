@@ -1,0 +1,35 @@
+{
+  "slug": "rulebook",
+  "title": "Rulebook",
+  "version": "0.0.83",
+  "releaseDate": "",
+  "defaultChapter": "zanim-wejdziesz",
+  "chapters": [
+    {
+      "slug": "zanim-wejdziesz",
+      "title": "Zanim Wejdziesz",
+      "path": "rulebook/zanim-wejdziesz/",
+      "bodyFragment": "fragments/rulebook--zanim-wejdziesz.body.html",
+      "tocFragment": "fragments/rulebook--zanim-wejdziesz.toc.html",
+      "prev": null,
+      "next": "fundament-deagonii"
+    },
+    {
+      "slug": "fundament-deagonii",
+      "title": "Fundament Deagonii",
+      "path": "rulebook/fundament-deagonii/",
+      "bodyFragment": "fragments/rulebook--fundament-deagonii.body.html",
+      "tocFragment": "fragments/rulebook--fundament-deagonii.toc.html",
+      "prev": "zanim-wejdziesz",
+      "next": null
+    }
+  ],
+  "anchorMap": {
+    "rulebook-prolog": "zanim-wejdziesz",
+    "uwaga": "zanim-wejdziesz",
+    "rulebook-fundament": "fundament-deagonii",
+    "rulebook-fundament-manifest": "fundament-deagonii",
+    "rulebook-fundament-setting": "fundament-deagonii",
+    "uwaga-o-ilustracjach": "fundament-deagonii"
+  }
+}
